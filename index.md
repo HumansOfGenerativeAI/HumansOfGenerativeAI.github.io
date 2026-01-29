@@ -1,4 +1,5 @@
 ---
+title: Humans of Generative AI 2026
 layout: default
 ---
 
