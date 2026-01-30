@@ -3,8 +3,11 @@ title: "Humans of Generative AI 2026"
 layout: default
 ---
 
-**Date:** June 3 or June 4 (TBD)
-**Location:** Denver, Colorado  
+**CVPR 2026 Workshop**
+
+**Date:** June 3 or June 4 (TBD)  
+**Location:** Denver, Colorado
+
 
 # Overview
 
@@ -143,7 +146,7 @@ Submission details will be announced.
         Assistant Professor at Dartmouth College researching security and machine learning,
         including protections for artists against generative model misuse.
       </p>
-      <a href="mailto:Shawn.Shan@dartmouth.edu">Shawn.Shan@dartmouth.edu</a>
+      <a href="mailto:shawn.shan@dartmouth.edu">shawn.shan@dartmouth.edu</a>
     </div>
 
     <div class="organizer-card">
