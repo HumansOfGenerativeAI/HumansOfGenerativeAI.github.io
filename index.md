@@ -3,7 +3,7 @@ title: "Humans of Generative AI 2026"
 layout: default
 ---
 
-**Date:** June 3 or June 4  
+**Date:** June 3 or June 4 (TBD)
 **Location:** Denver, Colorado  
 
 # Overview
@@ -26,12 +26,10 @@ As AI systems begin to see widespread adoption and use by an increasing number o
 used in unanticipated scenarios. A core focus of this workshop is human-centered research that informs the design of technical systems. From these discussions, we aim to connect human-centric insights with the technical limitations and design choices of current systems, identifying directions for future research.
 
 ### Topic 2.  Technical Designs That Consider Unattended Needs of Real-World Users.
-As a direct response
-to Topic 1, this Topic 1 continues the conversation by presenting technical designs that fulfill unmet needs
-or protect against unattended harms in existing AI systems. 
-to Topic 1, this Topic 1 continues the conversation by presenting technical designs that fulfill unmet needs
-or protect against unattended harms in existing AI systems. Social Science Findings That Inform the Technical Design of AI Systems.
-In this topic, we will broadly discuss how these socio-technically informed findings of those effects can be translated into concrete design goals for researchers.
+As a direct response to Topic 1, this topic focuses on technical designs that fulfill unmet
+needs or protect against unattended harms in existing AI systems. We broadly discuss how
+socio-technical findings can be translated into concrete design goals, evaluation protocols,
+and system architectures.
 
 
 # (Tentative) Schedule
