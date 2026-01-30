@@ -1,7 +1,10 @@
 ---
-title: Humans of Generative AI 2026
+title: "Humans of Generative AI 2026"
 layout: default
 ---
+
+**Date:** June 3 or June 4 (TBD)
+**Location:** Denver, Colorado  
 
 # Overview
 
@@ -23,12 +26,10 @@ As AI systems begin to see widespread adoption and use by an increasing number o
 used in unanticipated scenarios. A core focus of this workshop is human-centered research that informs the design of technical systems. From these discussions, we aim to connect human-centric insights with the technical limitations and design choices of current systems, identifying directions for future research.
 
 ### Topic 2.  Technical Designs That Consider Unattended Needs of Real-World Users.
-As a direct response
-to Topic 1, this Topic 1 continues the conversation by presenting technical designs that fulfill unmet needs
-or protect against unattended harms in existing AI systems. 
-to Topic 1, this Topic 1 continues the conversation by presenting technical designs that fulfill unmet needs
-or protect against unattended harms in existing AI systems. Social Science Findings That Inform the Technical Design of AI Systems.
-In this topic, we will broadly discuss how these socio-technically informed findings of those effects can be translated into concrete design goals for researchers.
+As a direct response to Topic 1, this topic focuses on technical designs that fulfill unmet
+needs or protect against unattended harms in existing AI systems. We broadly discuss how
+socio-technical findings can be translated into concrete design goals, evaluation protocols,
+and system architectures.
 
 
 # (Tentative) Schedule
@@ -84,10 +85,13 @@ Times are listed in **CEST**
 
 # Call for Participation
 
-*To be announced.*
+- **Feb. 2** — Call for papers released  
+- **Mar. 20** — Submission deadline  
+- **Mar. 30** — Notification to authors  
+
+Submission details will be announced.
  
 # Organizers
-
 
 <section class="organizers-section">
   <div class="organizers-grid">
@@ -95,54 +99,90 @@ Times are listed in **CEST**
     <div class="organizer-card">
       <h3>Jaron Mink</h3>
       <p>Arizona State University</p>
+      <p class="organizer-bio">
+        Assistant Professor at Arizona State University studying human factors in the security,
+        safety, and trustworthiness of machine learning systems.
+      </p>
       <a href="mailto:jaron.mink@asu.edu">jaron.mink@asu.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>David A. Forsyth</h3>
       <p>University of Illinois–Urbana-Champaign</p>
+      <p class="organizer-bio">
+        Professor at the University of Illinois Urbana–Champaign and former Editor-in-Chief of
+        IEEE TPAMI, with foundational contributions to computer vision.
+      </p>
       <a href="mailto:daf@illinois.edu">daf@illinois.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>Elissa M. Redmiles</h3>
       <p>Georgetown University</p>
+      <p class="organizer-bio">
+        Assistant Professor at Georgetown University using computational and social science
+        methods to study user safety and decision-making in digital systems.
+      </p>
       <a href="mailto:elissa.redmiles@georgetown.edu">elissa.redmiles@georgetown.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>Sarah Adel Bargal</h3>
       <p>Georgetown University</p>
+      <p class="organizer-bio">
+        Assistant Professor at Georgetown University working at the intersection of computer
+        vision, machine learning, and explainable AI.
+      </p>
       <a href="mailto:sarah.bargal@georgetown.edu">sarah.bargal@georgetown.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>Shawn Shan</h3>
       <p>Dartmouth College</p>
+      <p class="organizer-bio">
+        Assistant Professor at Dartmouth College researching security and machine learning,
+        including protections for artists against generative model misuse.
+      </p>
       <a href="mailto:Shawn.Shan@dartmouth.edu">Shawn.Shan@dartmouth.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>Lucy Qin</h3>
       <p>Georgetown University</p>
+      <p class="organizer-bio">
+        Postdoctoral researcher at Georgetown University studying online abuse and digital
+        intimacy using qualitative methods.
+      </p>
       <a href="mailto:lucy.qin@georgetown.edu">lucy.qin@georgetown.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>Anand Bhattad</h3>
       <p>Johns Hopkins University</p>
+      <p class="organizer-bio">
+        Assistant Professor at Johns Hopkins University focusing on understanding and
+        evaluating knowledge in generative models.
+      </p>
       <a href="mailto:bhattad@jhu.edu">bhattad@jhu.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>Shiry Ginosar</h3>
       <p>Toyota Technical Institute at Chicago</p>
+      <p class="organizer-bio">
+        Assistant Professor at TTIC whose research spans grounded vision, social behavior
+        understanding, and video synthesis.
+      </p>
       <a href="mailto:shiry@ttic.edu">shiry@ttic.edu</a>
     </div>
 
     <div class="organizer-card">
       <h3>Eunice Yiu</h3>
       <p>University of California, Berkeley</p>
+      <p class="organizer-bio">
+        Postdoctoral researcher at UC Berkeley studying how humans and AI systems build
+        world models through analogy and exploration.
+      </p>
       <a href="mailto:ey242@berkeley.edu">ey242@berkeley.edu</a>
     </div>
 
