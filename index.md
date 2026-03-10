@@ -6,11 +6,9 @@ layout: default
 section_nav: true
 ---
 
-Humans of Generative AI 2026 is a workshop for researchers studying how people use,
-experience, and are affected by generative AI and computer vision systems.
-
-We invite talks and posters that connect human-centered findings to the design, evaluation,
-and deployment of AI systems. We are especially interested in:
+Humans of Generative AI 2026 is a workshop on how people use, experience, and are affected
+by generative AI and computer vision systems. We invite talks and posters that connect
+human-centered findings to AI design, evaluation, and deployment, especially:
 
 - Social science findings that should shape the technical design of AI systems
 - Technical designs that address unmet user needs or real-world harms
@@ -19,10 +17,8 @@ and deployment of AI systems. We are especially interested in:
 # Call for Participation
 
 This workshop invites poster submissions that connect real-world user insights to technical
-AI design and requirements.
-
-We especially encourage interdisciplinary work spanning computer vision, machine learning,
-HCI, safety, security, ethics, and social science.
+AI design and requirements. We especially encourage interdisciplinary work spanning computer
+vision, machine learning, HCI, safety, security, ethics, and social science.
 
 ## Important Dates
 
@@ -41,7 +37,10 @@ HCI, safety, security, ethics, and social science.
   session and a 3-5 minute lightning talk
 
 <details class="cfp-details" markdown="1">
-  <summary>View submission details</summary>
+  <summary>
+    <span class="cfp-summary-label cfp-summary-label-closed">Expand submission details</span>
+    <span class="cfp-summary-label cfp-summary-label-open">Hide submission details</span>
+  </summary>
 
 ## Topics of Interest
 
@@ -94,12 +93,9 @@ in the CVPR proceedings.
 <p class="schedule-note">Times are listed in <strong>Denver local time (MDT)</strong>.</p>
 
 <section class="schedule-program" aria-label="Workshop schedule">
-  <div class="schedule-block">
-    <div class="schedule-block-title">Opening</div>
-    <div class="schedule-item">
-      <div class="schedule-time">8:00a</div>
-      <div class="schedule-activity">Welcome</div>
-    </div>
+  <div class="schedule-item">
+    <div class="schedule-time">8:00a</div>
+    <div class="schedule-activity">Welcome</div>
   </div>
 
   <div class="schedule-block">
