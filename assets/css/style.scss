@@ -171,25 +171,13 @@ body {
 }
 
 .main-content ul {
-  margin-top: 0.45rem;
+  margin-top: 0.2rem;
   margin-bottom: 0.8rem;
   padding-left: 1.3rem;
 }
 
 .main-content li + li {
-  margin-top: 0.2rem;
-}
-
-.main-content p > strong:first-child {
-  display: inline-block;
-  margin-top: 1.05rem;
-  margin-bottom: 0.35rem;
-  padding: 0.18rem 0.55rem;
-  border-radius: 999px;
-  background: var(--surface-tint);
-  color: var(--accent-rose);
-  font-size: 0.86rem;
-  letter-spacing: 0.02em;
+  margin-top: 0.08rem;
 }
 
 @media screen and (min-width: 64rem) {

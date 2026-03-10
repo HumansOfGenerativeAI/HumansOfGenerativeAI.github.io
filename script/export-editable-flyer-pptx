@@ -1,0 +1,479 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+from zipfile import ZIP_DEFLATED, ZipFile
+
+
+ROOT = Path(__file__).resolve().parent.parent
+EXPORT_DIR = ROOT / "assets" / "flyer-export"
+EMU_PER_INCH = 914400
+
+
+def emu(value: float) -> int:
+    return int(round(value))
+
+
+def scale(value: float, source_span: float, target_span: int) -> int:
+    return emu((value / source_span) * target_span)
+
+
+def escape_xml(text: str) -> str:
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+
+
+def text_shape(shape_id, name, x, y, w, h, paragraphs, font_face, font_size, color, bold=False):
+    para_xml = []
+    for paragraph in paragraphs:
+        runs = []
+        if isinstance(paragraph, str):
+            paragraph = [{"text": paragraph}]
+        elif paragraph and isinstance(paragraph[0], str):
+            paragraph = [{"text": "".join(paragraph)}]
+        for run in paragraph:
+            run_text = escape_xml(run["text"])
+            run_bold = "1" if run.get("bold", bold) else "0"
+            run_face = run.get("font_face", font_face)
+            run_color = run.get("color", color)
+            run_size = run.get("font_size", font_size)
+            runs.append(
+                f"""
+        <a:r>
+          <a:rPr lang="en-US" sz="{run_size * 100}" b="{run_bold}" dirty="0" smtClean="0">
+            <a:solidFill><a:srgbClr val="{run_color}"/></a:solidFill>
+            <a:latin typeface="{run_face}"/>
+          </a:rPr>
+          <a:t>{run_text}</a:t>
+        </a:r>"""
+            )
+        para_xml.append(
+            f"""
+      <a:p>
+        <a:pPr algn="l"/>
+        {''.join(runs)}
+        <a:endParaRPr lang="en-US" sz="{font_size * 100}"/>
+      </a:p>"""
+        )
+
+    return f"""
+    <p:sp>
+      <p:nvSpPr>
+        <p:cNvPr id="{shape_id}" name="{escape_xml(name)}"/>
+        <p:cNvSpPr txBox="1"/>
+        <p:nvPr/>
+      </p:nvSpPr>
+      <p:spPr>
+        <a:xfrm>
+          <a:off x="{x}" y="{y}"/>
+          <a:ext cx="{w}" cy="{h}"/>
+        </a:xfrm>
+        <a:prstGeom prst="rect"><a:avLst/></a:prstGeom>
+        <a:noFill/>
+        <a:ln><a:noFill/></a:ln>
+      </p:spPr>
+      <p:txBody>
+        <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" anchor="t"/>
+        <a:lstStyle/>
+        {''.join(para_xml)}
+      </p:txBody>
+    </p:sp>"""
+
+
+def rect_shape(shape_id, name, x, y, w, h, fill, line=None):
+    line_xml = "<a:ln><a:noFill/></a:ln>"
+    if line:
+        line_xml = f'<a:ln w="{line.get("width", 9525)}"><a:solidFill><a:srgbClr val="{line["color"]}"/></a:solidFill></a:ln>'
+    return f"""
+    <p:sp>
+      <p:nvSpPr>
+        <p:cNvPr id="{shape_id}" name="{escape_xml(name)}"/>
+        <p:cNvSpPr/>
+        <p:nvPr/>
+      </p:nvSpPr>
+      <p:spPr>
+        <a:xfrm>
+          <a:off x="{x}" y="{y}"/>
+          <a:ext cx="{w}" cy="{h}"/>
+        </a:xfrm>
+        <a:prstGeom prst="rect"><a:avLst/></a:prstGeom>
+        <a:solidFill><a:srgbClr val="{fill}"/></a:solidFill>
+        {line_xml}
+      </p:spPr>
+      <p:txBody><a:bodyPr/><a:lstStyle/><a:p/></p:txBody>
+    </p:sp>"""
+
+
+def picture_shape(shape_id, name, x, y, w, h, rel_id):
+    return f"""
+    <p:pic>
+      <p:nvPicPr>
+        <p:cNvPr id="{shape_id}" name="{escape_xml(name)}"/>
+        <p:cNvPicPr><a:picLocks noChangeAspect="1"/></p:cNvPicPr>
+        <p:nvPr/>
+      </p:nvPicPr>
+      <p:blipFill rotWithShape="1">
+        <a:blip r:embed="{rel_id}"/>
+        <a:stretch><a:fillRect/></a:stretch>
+      </p:blipFill>
+      <p:spPr>
+        <a:xfrm>
+          <a:off x="{x}" y="{y}"/>
+          <a:ext cx="{w}" cy="{h}"/>
+        </a:xfrm>
+        <a:prstGeom prst="rect"><a:avLst/></a:prstGeom>
+      </p:spPr>
+    </p:pic>"""
+
+
+def build_slide_xml(spec, slide_cx, slide_cy):
+    width = spec["svg_width"]
+    height = spec["svg_height"]
+    next_id = 2
+    shapes = []
+
+    def sx(v):
+        return scale(v, width, slide_cx)
+
+    def sy(v):
+        return scale(v, height, slide_cy)
+
+    shapes.append(rect_shape(next_id, "Paper Background", 0, 0, slide_cx, slide_cy, "FFFBF5"))
+    next_id += 1
+    shapes.append(picture_shape(next_id, "Header Artwork", 0, 0, slide_cx, sy(spec["header_height"]), "rId1"))
+    next_id += 1
+
+    for item in spec["items"]:
+        if item["type"] == "text":
+            shapes.append(
+                text_shape(
+                    next_id,
+                    item["name"],
+                    sx(item["x"]),
+                    sy(item["y"]),
+                    sx(item["w"]),
+                    sy(item["h"]),
+                    item["paragraphs"],
+                    item["font_face"],
+                    item["font_size"],
+                    item["color"],
+                    item.get("bold", False),
+                )
+            )
+        elif item["type"] == "rect":
+            shapes.append(
+                rect_shape(
+                    next_id,
+                    item["name"],
+                    sx(item["x"]),
+                    sy(item["y"]),
+                    sx(item["w"]),
+                    sy(item["h"]),
+                    item["fill"],
+                )
+            )
+        next_id += 1
+
+    return f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<p:sld xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+       xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+       xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
+  <p:cSld>
+    <p:spTree>
+      <p:nvGrpSpPr>
+        <p:cNvPr id="1" name=""/>
+        <p:cNvGrpSpPr/>
+        <p:nvPr/>
+      </p:nvGrpSpPr>
+      <p:grpSpPr>
+        <a:xfrm>
+          <a:off x="0" y="0"/>
+          <a:ext cx="0" cy="0"/>
+          <a:chOff x="0" y="0"/>
+          <a:chExt cx="0" cy="0"/>
+        </a:xfrm>
+      </p:grpSpPr>
+      {''.join(shapes)}
+    </p:spTree>
+  </p:cSld>
+  <p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr>
+</p:sld>
+"""
+
+
+def package_pptx(output_path, image_path, slide_cx, slide_cy, slide_xml):
+    content_types = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+  <Default Extension="xml" ContentType="application/xml"/>
+  <Default Extension="png" ContentType="image/png"/>
+  <Override PartName="/ppt/presentation.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml"/>
+  <Override PartName="/ppt/slides/slide1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml"/>
+  <Override PartName="/ppt/slideLayouts/slideLayout1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml"/>
+  <Override PartName="/ppt/slideMasters/slideMaster1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml"/>
+  <Override PartName="/ppt/theme/theme1.xml" ContentType="application/vnd.openxmlformats-officedocument.theme+xml"/>
+  <Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/>
+  <Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/>
+</Types>
+"""
+    root_rels = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="ppt/presentation.xml"/>
+  <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/>
+  <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/>
+</Relationships>
+"""
+    app_xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"
+            xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes">
+  <Application>Microsoft Office PowerPoint</Application>
+  <PresentationFormat>Custom</PresentationFormat>
+  <Slides>1</Slides>
+  <Notes>0</Notes>
+  <HiddenSlides>0</HiddenSlides>
+  <MMClips>0</MMClips>
+  <ScaleCrop>false</ScaleCrop>
+  <HeadingPairs>
+    <vt:vector size="2" baseType="variant">
+      <vt:variant><vt:lpstr>Slides</vt:lpstr></vt:variant>
+      <vt:variant><vt:i4>1</vt:i4></vt:variant>
+    </vt:vector>
+  </HeadingPairs>
+  <TitlesOfParts>
+    <vt:vector size="1" baseType="lpstr">
+      <vt:lpstr>Flyer</vt:lpstr>
+    </vt:vector>
+  </TitlesOfParts>
+  <AppVersion>16.0000</AppVersion>
+</Properties>
+"""
+    core_xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties"
+                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                   xmlns:dcterms="http://purl.org/dc/terms/"
+                   xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Humans of Generative AI Flyer</dc:title>
+  <dc:creator>Codex</dc:creator>
+  <cp:lastModifiedBy>Codex</cp:lastModifiedBy>
+  <dcterms:created xsi:type="dcterms:W3CDTF">2026-03-10T00:00:00Z</dcterms:created>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-03-10T00:00:00Z</dcterms:modified>
+</cp:coreProperties>
+"""
+    presentation_xml = f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<p:presentation xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+                xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+                xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"
+                saveSubsetFonts="1" autoCompressPictures="0">
+  <p:sldMasterIdLst>
+    <p:sldMasterId id="2147483648" r:id="rId1"/>
+  </p:sldMasterIdLst>
+  <p:sldIdLst>
+    <p:sldId id="256" r:id="rId2"/>
+  </p:sldIdLst>
+  <p:sldSz cx="{slide_cx}" cy="{slide_cy}" type="custom"/>
+  <p:notesSz cx="6858000" cy="9144000"/>
+  <p:defaultTextStyle/>
+</p:presentation>
+"""
+    presentation_rels = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideMaster" Target="slideMasters/slideMaster1.xml"/>
+  <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slide" Target="slides/slide1.xml"/>
+</Relationships>
+"""
+    slide_rels = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="../media/header.png"/>
+  <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout" Target="../slideLayouts/slideLayout1.xml"/>
+</Relationships>
+"""
+    slide_layout_xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<p:sldLayout xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+             xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+             xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"
+             type="blank" preserve="1">
+  <p:cSld name="Blank">
+    <p:spTree>
+      <p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr>
+      <p:grpSpPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="0" cy="0"/><a:chOff x="0" y="0"/><a:chExt cx="0" cy="0"/></a:xfrm></p:grpSpPr>
+    </p:spTree>
+  </p:cSld>
+  <p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr>
+</p:sldLayout>
+"""
+    slide_layout_rels = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideMaster" Target="../slideMasters/slideMaster1.xml"/>
+</Relationships>
+"""
+    slide_master_xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<p:sldMaster xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+             xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+             xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
+  <p:cSld name="Office Theme">
+    <p:bg><p:bgPr><a:solidFill><a:schemeClr val="bg1"/></a:solidFill><a:effectLst/></p:bgPr></p:bg>
+    <p:spTree>
+      <p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr>
+      <p:grpSpPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="0" cy="0"/><a:chOff x="0" y="0"/><a:chExt cx="0" cy="0"/></a:xfrm></p:grpSpPr>
+    </p:spTree>
+  </p:cSld>
+  <p:clrMap bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/>
+  <p:sldLayoutIdLst><p:sldLayoutId id="2147483649" r:id="rId1"/></p:sldLayoutIdLst>
+  <p:txStyles><p:titleStyle/><p:bodyStyle/><p:otherStyle/></p:txStyles>
+</p:sldMaster>
+"""
+    slide_master_rels = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout" Target="../slideLayouts/slideLayout1.xml"/>
+  <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="../theme/theme1.xml"/>
+</Relationships>
+"""
+    theme_xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" name="Office Theme">
+  <a:themeElements>
+    <a:clrScheme name="Office">
+      <a:dk1><a:sysClr val="windowText" lastClr="000000"/></a:dk1>
+      <a:lt1><a:sysClr val="window" lastClr="FFFFFF"/></a:lt1>
+      <a:dk2><a:srgbClr val="44546A"/></a:dk2>
+      <a:lt2><a:srgbClr val="E7E6E6"/></a:lt2>
+      <a:accent1><a:srgbClr val="4472C4"/></a:accent1>
+      <a:accent2><a:srgbClr val="ED7D31"/></a:accent2>
+      <a:accent3><a:srgbClr val="A5A5A5"/></a:accent3>
+      <a:accent4><a:srgbClr val="FFC000"/></a:accent4>
+      <a:accent5><a:srgbClr val="5B9BD5"/></a:accent5>
+      <a:accent6><a:srgbClr val="70AD47"/></a:accent6>
+      <a:hlink><a:srgbClr val="0563C1"/></a:hlink>
+      <a:folHlink><a:srgbClr val="954F72"/></a:folHlink>
+    </a:clrScheme>
+    <a:fontScheme name="Office">
+      <a:majorFont><a:latin typeface="Georgia"/><a:ea typeface=""/><a:cs typeface=""/></a:majorFont>
+      <a:minorFont><a:latin typeface="Arial"/><a:ea typeface=""/><a:cs typeface=""/></a:minorFont>
+    </a:fontScheme>
+    <a:fmtScheme name="Office">
+      <a:fillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill></a:fillStyleLst>
+      <a:lnStyleLst><a:ln w="9525" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill></a:ln></a:lnStyleLst>
+      <a:effectStyleLst><a:effectStyle><a:effectLst/></a:effectStyle></a:effectStyleLst>
+      <a:bgFillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill></a:bgFillStyleLst>
+    </a:fmtScheme>
+  </a:themeElements>
+  <a:objectDefaults/>
+  <a:extraClrSchemeLst/>
+</a:theme>
+"""
+
+    with ZipFile(output_path, "w", ZIP_DEFLATED) as zf:
+        zf.writestr("[Content_Types].xml", content_types)
+        zf.writestr("_rels/.rels", root_rels)
+        zf.writestr("docProps/app.xml", app_xml)
+        zf.writestr("docProps/core.xml", core_xml)
+        zf.writestr("ppt/presentation.xml", presentation_xml)
+        zf.writestr("ppt/_rels/presentation.xml.rels", presentation_rels)
+        zf.writestr("ppt/slides/slide1.xml", slide_xml)
+        zf.writestr("ppt/slides/_rels/slide1.xml.rels", slide_rels)
+        zf.writestr("ppt/slideLayouts/slideLayout1.xml", slide_layout_xml)
+        zf.writestr("ppt/slideLayouts/_rels/slideLayout1.xml.rels", slide_layout_rels)
+        zf.writestr("ppt/slideMasters/slideMaster1.xml", slide_master_xml)
+        zf.writestr("ppt/slideMasters/_rels/slideMaster1.xml.rels", slide_master_rels)
+        zf.writestr("ppt/theme/theme1.xml", theme_xml)
+        zf.write(image_path, "ppt/media/header.png")
+
+
+def build_spec_social():
+    return {
+        "svg_width": 1600,
+        "svg_height": 1600,
+        "header_height": 560,
+        "items": [
+            {"type": "text", "name": "Eyebrow", "x": 52, "y": 76, "w": 1300, "h": 40, "paragraphs": ["CVPR WORKSHOP  |  JUNE 3 OR JUNE 4, 2026  |  DENVER, COLORADO"], "font_face": "Arial", "font_size": 20, "color": "FFF7ED", "bold": True},
+            {"type": "text", "name": "Title Line 1", "x": 52, "y": 150, "w": 900, "h": 110, "paragraphs": ["Humans of"], "font_face": "Georgia", "font_size": 112, "color": "FFFAF4", "bold": True},
+            {"type": "text", "name": "Title Line 2", "x": 52, "y": 265, "w": 1100, "h": 120, "paragraphs": ["Generative AI"], "font_face": "Georgia", "font_size": 128, "color": "FFFAF4", "bold": True},
+            {"type": "text", "name": "Subtitle", "x": 52, "y": 392, "w": 1050, "h": 95, "paragraphs": ["A workshop on how people use, experience, and are affected by", "generative AI and computer vision systems."], "font_face": "Arial", "font_size": 30, "color": "FFF9F0", "bold": True},
+            {"type": "text", "name": "About Header", "x": 52, "y": 606, "w": 420, "h": 30, "paragraphs": ["ABOUT THE WORKSHOP"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "About Body", "x": 52, "y": 648, "w": 760, "h": 150, "paragraphs": ["Humans of Generative AI brings together work on how people use,", "experience, and are affected by generative AI and computer vision", "systems. The workshop connects human-centered findings to the", "design, evaluation, and deployment of AI systems."], "font_face": "Arial", "font_size": 24, "color": "2C2A28"},
+            {"type": "rect", "name": "Divider 1", "x": 64, "y": 832, "w": 1472, "h": 2, "fill": "E5D9CC"},
+            {"type": "text", "name": "CFP Header", "x": 52, "y": 836, "w": 520, "h": 30, "paragraphs": ["CALL FOR PARTICIPATION"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "CFP Body", "x": 52, "y": 880, "w": 780, "h": 150, "paragraphs": ["We invite submissions that connect real-world user insights to", "technical AI design, evaluation, and deployment. Submit a 1-3 page", "extended abstract. Accepted submissions will be presented as both", "a poster and a 3-5 minute lightning talk."], "font_face": "Arial", "font_size": 24, "color": "2C2A28"},
+            {"type": "rect", "name": "Divider 2", "x": 64, "y": 1046, "w": 1472, "h": 2, "fill": "E5D9CC"},
+            {"type": "rect", "name": "Divider Vertical", "x": 816, "y": 1048, "w": 2, "h": 456, "fill": "E5D9CC"},
+            {"type": "text", "name": "Welcome Header", "x": 64, "y": 1080, "w": 420, "h": 30, "paragraphs": ["WE ESPECIALLY WELCOME"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "Welcome Body", "x": 88, "y": 1124, "w": 620, "h": 260, "paragraphs": ["• Social science findings that should shape", "  the technical design of AI systems", "• Technical designs that address unmet", "  user needs or real-world harms", "• Evaluation methods grounded in how", "  people actually use and experience AI systems", "• Interdisciplinary work spanning CV, ML, HCI,", "  safety, security, ethics, and social science"], "font_face": "Arial", "font_size": 24, "color": "2C2A28"},
+            {"type": "text", "name": "Dates Header", "x": 852, "y": 1080, "w": 240, "h": 30, "paragraphs": ["KEY DATES"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "Dates Note", "x": 852, "y": 1124, "w": 520, "h": 30, "paragraphs": ["Submission deadline: (11:59 PM AOE)"], "font_face": "Arial", "font_size": 24, "color": "7A7067"},
+            {"type": "text", "name": "Dates Body", "x": 852, "y": 1178, "w": 470, "h": 210, "paragraphs": [
+                [{"text": "• "}, {"text": "April 10, 2026", "bold": True}],
+                ["  Submission deadline"],
+                [{"text": "• "}, {"text": "April 24, 2026", "bold": True}],
+                ["  Notification of acceptance"],
+                [{"text": "• "}, {"text": "May 22, 2026", "bold": True}],
+                ["  Camera-ready deadline"],
+            ], "font_face": "Arial", "font_size": 24, "color": "2C2A28"},
+            {"type": "rect", "name": "Divider 3", "x": 64, "y": 1502, "w": 1472, "h": 2, "fill": "E5D9CC"},
+            {"type": "text", "name": "Footer", "x": 64, "y": 1528, "w": 1200, "h": 32, "paragraphs": ["Full CFP and website at https://humansofgenerativeai.github.io/"], "font_face": "Arial", "font_size": 24, "color": "7A7067"},
+        ],
+    }
+
+
+def build_spec_portrait():
+    return {
+        "svg_width": 1200,
+        "svg_height": 1600,
+        "header_height": 490,
+        "items": [
+            {"type": "text", "name": "Eyebrow", "x": 80, "y": 112, "w": 980, "h": 34, "paragraphs": ["CVPR WORKSHOP  |  JUNE 3 OR JUNE 4, 2026  |  DENVER, COLORADO"], "font_face": "Arial", "font_size": 20, "color": "FFF7ED", "bold": True},
+            {"type": "text", "name": "Title Line 1", "x": 80, "y": 200, "w": 700, "h": 90, "paragraphs": ["Humans of"], "font_face": "Georgia", "font_size": 82, "color": "FFFAF4", "bold": True},
+            {"type": "text", "name": "Title Line 2", "x": 80, "y": 286, "w": 840, "h": 100, "paragraphs": ["Generative AI"], "font_face": "Georgia", "font_size": 98, "color": "FFFAF4", "bold": True},
+            {"type": "text", "name": "Subtitle", "x": 80, "y": 382, "w": 920, "h": 88, "paragraphs": ["A workshop on how people use, experience, and are affected by", "generative AI and computer vision systems."], "font_face": "Arial", "font_size": 30, "color": "FFF9F0", "bold": True},
+            {"type": "text", "name": "About Header", "x": 88, "y": 534, "w": 320, "h": 28, "paragraphs": ["ABOUT THE WORKSHOP"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "About Body", "x": 88, "y": 580, "w": 760, "h": 130, "paragraphs": ["Humans of Generative AI brings together work on how people use, experience,", "and are affected by generative AI and computer vision systems. The workshop", "connects human-centered findings to the design, evaluation, and deployment", "of AI systems."], "font_face": "Arial", "font_size": 22, "color": "2C2A28"},
+            {"type": "rect", "name": "Divider 1", "x": 96, "y": 756, "w": 1008, "h": 2, "fill": "E5D9CC"},
+            {"type": "text", "name": "CFP Header", "x": 88, "y": 760, "w": 420, "h": 28, "paragraphs": ["CALL FOR PARTICIPATION"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "CFP Body", "x": 88, "y": 806, "w": 760, "h": 130, "paragraphs": ["We invite submissions that connect real-world user insights to technical AI", "design, evaluation, and deployment. Submit a 1-3 page extended abstract.", "Accepted submissions will be presented as both a poster and a 3-5 minute", "lightning talk."], "font_face": "Arial", "font_size": 22, "color": "2C2A28"},
+            {"type": "rect", "name": "Divider 2", "x": 96, "y": 994, "w": 1008, "h": 2, "fill": "E5D9CC"},
+            {"type": "rect", "name": "Divider Vertical", "x": 620, "y": 996, "w": 2, "h": 454, "fill": "E5D9CC"},
+            {"type": "text", "name": "Welcome Header", "x": 96, "y": 1022, "w": 340, "h": 28, "paragraphs": ["WE ESPECIALLY WELCOME"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "Welcome Body", "x": 120, "y": 1068, "w": 420, "h": 250, "paragraphs": ["• Social science findings that should shape", "  the technical design of AI systems", "• Technical designs that address unmet", "  user needs or real-world harms", "• Evaluation methods grounded in how", "  people actually use and experience", "  AI systems", "• Interdisciplinary work spanning CV, ML, HCI,", "  safety, security, ethics, and social science"], "font_face": "Arial", "font_size": 22, "color": "2C2A28"},
+            {"type": "text", "name": "Dates Header", "x": 660, "y": 1022, "w": 220, "h": 28, "paragraphs": ["KEY DATES"], "font_face": "Arial", "font_size": 21, "color": "B86A5C", "bold": True},
+            {"type": "text", "name": "Dates Note", "x": 660, "y": 1068, "w": 360, "h": 28, "paragraphs": ["Submission deadline: (11:59 PM AOE)"], "font_face": "Arial", "font_size": 22, "color": "7A7067"},
+            {"type": "text", "name": "Dates Body", "x": 660, "y": 1108, "w": 320, "h": 200, "paragraphs": [
+                [{"text": "• "}, {"text": "April 10, 2026", "bold": True}],
+                ["  Submission deadline"],
+                [{"text": "• "}, {"text": "April 24, 2026", "bold": True}],
+                ["  Notification of acceptance"],
+                [{"text": "• "}, {"text": "May 22, 2026", "bold": True}],
+                ["  Camera-ready deadline"],
+            ], "font_face": "Arial", "font_size": 22, "color": "2C2A28"},
+            {"type": "rect", "name": "Divider 3", "x": 96, "y": 1448, "w": 1008, "h": 2, "fill": "E5D9CC"},
+            {"type": "text", "name": "Footer", "x": 96, "y": 1476, "w": 920, "h": 28, "paragraphs": ["Full CFP and website at https://humansofgenerativeai.github.io/"], "font_face": "Arial", "font_size": 22, "color": "7A7067"},
+        ],
+    }
+
+
+def main():
+    decks = [
+        {
+            "output": EXPORT_DIR / "social-flyer-editable.pptx",
+            "image": EXPORT_DIR / "social-header.png",
+            "spec": build_spec_social(),
+            "cx": 10 * EMU_PER_INCH,
+            "cy": 10 * EMU_PER_INCH,
+        },
+        {
+            "output": EXPORT_DIR / "portrait-flyer-editable.pptx",
+            "image": EXPORT_DIR / "portrait-header.png",
+            "spec": build_spec_portrait(),
+            "cx": int(7.5 * EMU_PER_INCH),
+            "cy": 10 * EMU_PER_INCH,
+        },
+    ]
+
+    for deck in decks:
+        slide_xml = build_slide_xml(deck["spec"], deck["cx"], deck["cy"])
+        package_pptx(deck["output"], deck["image"], deck["cx"], deck["cy"], slide_xml)
+        print(f"Generated {deck['output']}")
+
+
+if __name__ == "__main__":
+    main()

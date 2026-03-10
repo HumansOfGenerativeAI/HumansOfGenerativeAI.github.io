@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+import subprocess
+import textwrap
+
+
+ROOT = Path(__file__).resolve().parent.parent
+EXPORT = ROOT / "assets" / "flyer-export"
+
+
+def esc(s: str) -> str:
+    return s.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def rgb(hex_color: str) -> str:
+    hex_color = hex_color.lstrip("#")
+    return "{" + ", ".join(str(int(hex_color[i:i+2], 16)) for i in (0, 2, 4)) + "}"
+
+
+def add_text(lines, slide_idx, x, y, w, h, text, font_name, font_size, color, bold=False):
+    safe = esc(text)
+    lines.append(f'tell slide {slide_idx} of active presentation')
+    lines.append(f'set tb to make new text box at end with properties {{left position:{x}, top:{y}, width:{w}, height:{h}}}')
+    lines.append(f'set content of text range of text frame of tb to "{safe}"')
+    lines.append(f'set font name of font of text range of text frame of tb to "{font_name}"')
+    lines.append(f'set font size of font of text range of text frame of tb to {font_size}')
+    lines.append(f'set font color of font of text range of text frame of tb to {rgb(color)}')
+    lines.append(f'set bold of font of text range of text frame of tb to {"true" if bold else "false"}')
+    lines.append('end tell')
+
+
+def add_rect(lines, slide_idx, x, y, w, h, fill, line=None, weight=0.5):
+    lines.append(f'tell slide {slide_idx} of active presentation')
+    lines.append(f'set sh to make new shape at end with properties {{shape type:rectangle, left position:{x}, top:{y}, width:{w}, height:{h}}}')
+    lines.append(f'set fore color of fill format of sh to {rgb(fill)}')
+    if line:
+      lines.append(f'set fore color of line format of sh to {rgb(line)}')
+      lines.append(f'set line weight of line format of sh to {weight}')
+    lines.append('end tell')
+
+
+def add_picture(lines, slide_idx, path: Path, x, y, w, h):
+    lines.append(f'set imgPath to POSIX file "{path}"')
+    lines.append(f'tell slide {slide_idx} of active presentation')
+    lines.append(f'make new picture at end with properties {{file name:imgPath, left position:{x}, top:{y}, width:{w}, height:{h}}}')
+    lines.append('end tell')
+
+
+def build_social_applescript(output_path: Path) -> str:
+    lines = []
+    lines.append('tell application "Microsoft PowerPoint"')
+    lines.append('activate')
+    lines.append('make new presentation')
+    lines.append('make new slide at end of active presentation with properties {layout:slide layout blank}')
+    lines.append(f'save active presentation in "{output_path}"')
+    add_rect(lines, 1, 0, 0, 960, 186, "C96745", line="C96745")
+    add_picture(lines, 1, EXPORT / "social-header.png", 0, 0, 960, 186)
+    add_text(lines, 1, 24, 18, 820, 18, "CVPR WORKSHOP  |  JUNE 3 OR JUNE 4, 2026  |  DENVER, COLORADO", "Arial", 12, "FFF7ED", True)
+    add_text(lines, 1, 24, 50, 520, 48, "Humans of", "Georgia", 30, "FFFAF4", True)
+    add_text(lines, 1, 24, 92, 620, 56, "Generative AI", "Georgia", 34, "FFFAF4", True)
+    add_text(lines, 1, 24, 145, 560, 36, "A workshop on how people use, experience, and are affected by\ngenerative AI and computer vision systems.", "Arial", 12, "FFF9F0", True)
+
+    add_text(lines, 1, 24, 205, 260, 20, "ABOUT THE WORKSHOP", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 24, 226, 430, 64, "Humans of Generative AI brings together work on how people use,\nexperience, and are affected by generative AI and computer vision\nsystems. The workshop connects human-centered findings to the\ndesign, evaluation, and deployment of AI systems.", "Arial", 10, "2C2A28")
+    add_rect(lines, 1, 24, 298, 912, 1, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_text(lines, 1, 24, 306, 320, 20, "CALL FOR PARTICIPATION", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 24, 327, 450, 64, "We invite submissions that connect real-world user insights to\ntechnical AI design, evaluation, and deployment. Submit a 1-3 page\nextended abstract. Accepted submissions will be presented as both\na poster and a 3-5 minute lightning talk.", "Arial", 10, "2C2A28")
+
+    add_rect(lines, 1, 24, 403, 912, 1, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_rect(lines, 1, 500, 403, 1, 110, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_text(lines, 1, 24, 412, 260, 20, "WE ESPECIALLY WELCOME", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 24, 432, 440, 88, "• Social science findings that should shape\n  the technical design of AI systems\n• Technical designs that address unmet\n  user needs or real-world harms\n• Evaluation methods grounded in how\n  people actually use and experience AI systems", "Arial", 10, "2C2A28")
+    add_text(lines, 1, 520, 412, 200, 20, "KEY DATES", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 520, 432, 360, 18, "Submission deadline: (11:59 PM AOE)", "Arial", 10, "7A7067")
+    add_text(lines, 1, 520, 452, 280, 76, "• April 10, 2026\n  Submission deadline\n• April 24, 2026\n  Notification of acceptance\n• May 22, 2026\n  Camera-ready deadline", "Arial", 10, "2C2A28")
+    add_rect(lines, 1, 24, 520, 912, 1, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_text(lines, 1, 24, 528, 720, 18, "Full CFP and website at https://humansofgenerativeai.github.io/", "Arial", 10, "7A7067")
+
+    lines.append('save active presentation')
+    lines.append('close active presentation saving yes')
+    lines.append('end tell')
+    return "\n".join(lines)
+
+
+def build_portrait_applescript(output_path: Path) -> str:
+    lines = []
+    lines.append('tell application "Microsoft PowerPoint"')
+    lines.append('activate')
+    lines.append('make new presentation')
+    lines.append('tell page setup of active presentation')
+    lines.append('set slide orientation to vertical orientation')
+    lines.append('end tell')
+    lines.append('make new slide at end of active presentation with properties {layout:slide layout blank}')
+    lines.append(f'save active presentation in "{output_path}"')
+    add_rect(lines, 1, 0, 0, 540, 294, "C96745", line="C96745")
+    add_picture(lines, 1, EXPORT / "portrait-header.png", 0, 0, 540, 294)
+    add_text(lines, 1, 36, 22, 450, 20, "CVPR WORKSHOP  |  JUNE 3 OR JUNE 4, 2026  |  DENVER, COLORADO", "Arial", 10, "FFF7ED", True)
+    add_text(lines, 1, 36, 64, 330, 34, "Humans of", "Georgia", 24, "FFFAF4", True)
+    add_text(lines, 1, 36, 98, 420, 42, "Generative AI", "Georgia", 28, "FFFAF4", True)
+    add_text(lines, 1, 36, 146, 430, 42, "A workshop on how people use, experience, and are affected by\ngenerative AI and computer vision systems.", "Arial", 12, "FFF9F0", True)
+
+    add_text(lines, 1, 40, 314, 220, 18, "ABOUT THE WORKSHOP", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 40, 334, 400, 72, "Humans of Generative AI brings together work on how people use, experience,\nand are affected by generative AI and computer vision systems. The workshop\nconnects human-centered findings to the design, evaluation, and deployment\nof AI systems.", "Arial", 10, "2C2A28")
+    add_rect(lines, 1, 48, 425, 444, 1, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_text(lines, 1, 40, 433, 260, 18, "CALL FOR PARTICIPATION", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 40, 453, 410, 72, "We invite submissions that connect real-world user insights to technical AI\ndesign, evaluation, and deployment. Submit a 1-3 page extended abstract.\nAccepted submissions will be presented as both a poster and a 3-5 minute\nlightning talk.", "Arial", 10, "2C2A28")
+
+    add_rect(lines, 1, 48, 551, 444, 1, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_rect(lines, 1, 270, 551, 1, 225, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_text(lines, 1, 48, 560, 220, 18, "WE ESPECIALLY WELCOME", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 48, 580, 200, 150, "• Social science findings that should shape\n  the technical design of AI systems\n• Technical designs that address unmet\n  user needs or real-world harms\n• Evaluation methods grounded in how\n  people actually use and experience AI systems", "Arial", 10, "2C2A28")
+    add_text(lines, 1, 290, 560, 140, 18, "KEY DATES", "Arial", 11, "B86A5C", True)
+    add_text(lines, 1, 290, 580, 180, 18, "Submission deadline: (11:59 PM AOE)", "Arial", 10, "7A7067")
+    add_text(lines, 1, 290, 600, 190, 96, "• April 10, 2026\n  Submission deadline\n• April 24, 2026\n  Notification of acceptance\n• May 22, 2026\n  Camera-ready deadline", "Arial", 10, "2C2A28")
+    add_rect(lines, 1, 48, 776, 444, 1, "E5D9CC", line="E5D9CC", weight=0.5)
+    add_text(lines, 1, 48, 786, 420, 18, "Full CFP and website at https://humansofgenerativeai.github.io/", "Arial", 10, "7A7067")
+
+    lines.append('save active presentation')
+    lines.append('close active presentation saving yes')
+    lines.append('end tell')
+    return "\n".join(lines)
+
+
+def run_script(script: str) -> None:
+    subprocess.run(["osascript", "-"], input=script.encode(), check=True)
+
+
+def main():
+    run_script(build_social_applescript(EXPORT / "social-flyer-structure.pptx"))
+    run_script(build_portrait_applescript(EXPORT / "portrait-flyer-structure.pptx"))
+    print(f"Generated {EXPORT / 'social-flyer-structure.pptx'}")
+    print(f"Generated {EXPORT / 'portrait-flyer-structure.pptx'}")
+
+
+if __name__ == "__main__":
+    main()

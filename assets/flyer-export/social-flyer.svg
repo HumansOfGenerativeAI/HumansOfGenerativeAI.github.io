@@ -31,56 +31,57 @@
   <circle cx="1320" cy="220" r="320" fill="url(#sqglow1)"/>
   <circle cx="280" cy="520" r="260" fill="url(#sqglow2)"/>
 
-  <text x="96" y="118" fill="#FFF7ED" class="sans smallcaps" font-size="24" font-weight="700">CVPR Workshop  |  June 3 or June 4, 2026  |  Denver, Colorado</text>
-  <text x="96" y="248" fill="#FFFAF4" class="serif" font-size="110" font-weight="700">Humans of</text>
-  <text x="96" y="356" fill="#FFFAF4" class="serif" font-size="126" font-weight="700">Generative AI</text>
-  <text x="96" y="430" fill="#FFF9F0" class="sans" font-size="34" font-weight="600">
-    <tspan x="96" dy="0">A workshop on how people use, experience, and are affected by</tspan>
-    <tspan x="96" dy="44">generative AI and computer vision systems.</tspan>
+  <text x="52" y="112" fill="#FFF7ED" class="sans smallcaps" font-size="20" font-weight="700">CVPR Workshop  |  June 3 or June 4, 2026  |  Denver, Colorado</text>
+  <text x="52" y="244" fill="#FFFAF4" class="serif" font-size="112" font-weight="700">Humans of</text>
+  <text x="52" y="354" fill="#FFFAF4" class="serif" font-size="128" font-weight="700">Generative AI</text>
+  <text x="52" y="430" fill="#FFF9F0" class="sans" font-size="30" font-weight="600">
+    <tspan x="52" dy="0">A workshop on how people use, experience, and are affected by</tspan>
+    <tspan x="52" dy="40">generative AI and computer vision systems.</tspan>
   </text>
-  <text x="96" y="624" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">About the Workshop</text>
-  <text x="96" y="668" fill="#2C2A28" class="sans" font-size="30">
-    <tspan x="96" dy="0">Humans of Generative AI brings together work on how people use, experience,</tspan>
-    <tspan x="96" dy="40">and are affected by generative AI and computer vision systems. The workshop</tspan>
-    <tspan x="96" dy="40">connects human-centered findings to the design, evaluation, and deployment</tspan>
-    <tspan x="96" dy="40">of AI systems.</tspan>
-  </text>
-
-  <line x1="96" y1="834" x2="1504" y2="834" stroke="#E5D9CC" stroke-width="2"/>
-
-  <text x="96" y="894" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">Call for Participation</text>
-  <text x="96" y="938" fill="#2C2A28" class="sans" font-size="30">
-    <tspan x="96" dy="0">We invite submissions that connect real-world user insights to technical AI design,</tspan>
-    <tspan x="96" dy="40">evaluation, and deployment. Submit a 1-3 page extended abstract. Accepted</tspan>
-    <tspan x="96" dy="40">submissions will be presented as both a poster and a 3-5 minute lightning talk.</tspan>
+  <text x="52" y="624" fill="#B86A5C" class="sans smallcaps" font-size="21" font-weight="700">About the Workshop</text>
+  <text x="52" y="668" fill="#2C2A28" class="sans" font-size="24">
+    <tspan x="52" dy="0">Humans of Generative AI brings together work on how people use,</tspan>
+    <tspan x="52" dy="34">experience, and are affected by generative AI and computer vision</tspan>
+    <tspan x="52" dy="34">systems. The workshop connects human-centered findings to the</tspan>
+    <tspan x="52" dy="34">design, evaluation, and deployment of AI systems.</tspan>
   </text>
 
-  <line x1="96" y1="1048" x2="1504" y2="1048" stroke="#E5D9CC" stroke-width="2"/>
-  <line x1="820" y1="1048" x2="820" y2="1504" stroke="#E5D9CC" stroke-width="2"/>
+  <line x1="64" y1="834" x2="1536" y2="834" stroke="#E5D9CC" stroke-width="2"/>
 
-  <text x="96" y="1098" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">We Especially Welcome</text>
-  <text x="120" y="1142" fill="#2C2A28" class="sans" font-size="25">
-    <tspan x="120" dy="0">• Social science findings that should shape</tspan>
-    <tspan x="144" dy="32">the technical design of AI systems</tspan>
-    <tspan x="120" dy="42">• Technical designs that address unmet</tspan>
-    <tspan x="144" dy="32">user needs or real-world harms</tspan>
-    <tspan x="120" dy="42">• Evaluation methods grounded in how</tspan>
-    <tspan x="144" dy="32">people actually use and experience AI systems</tspan>
-    <tspan x="120" dy="42">• Interdisciplinary work spanning CV, ML, HCI,</tspan>
-    <tspan x="144" dy="32">safety, security, ethics, and social science</tspan>
+  <text x="52" y="854" fill="#B86A5C" class="sans smallcaps" font-size="21" font-weight="700">Call for Participation</text>
+  <text x="52" y="898" fill="#2C2A28" class="sans" font-size="24">
+    <tspan x="52" dy="0">We invite submissions that connect real-world user insights to</tspan>
+    <tspan x="52" dy="34">technical AI design, evaluation, and deployment. Submit a 1-3 page</tspan>
+    <tspan x="52" dy="34">extended abstract. Accepted submissions will be presented as both</tspan>
+    <tspan x="52" dy="34">a poster and a 3-5 minute lightning talk.</tspan>
   </text>
 
-  <text x="860" y="1098" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">Key Dates</text>
-  <text x="860" y="1142" fill="#7A7067" class="sans" font-size="22">Submission deadline: (11:59 PM AOE)</text>
-  <text x="860" y="1196" fill="#2C2A28" class="sans" font-size="24">
-    <tspan x="860" dy="0">• <tspan font-weight="700">April 10, 2026</tspan></tspan>
-    <tspan x="886" dy="30">Submission deadline</tspan>
-    <tspan x="860" dy="42">• <tspan font-weight="700">April 24, 2026</tspan></tspan>
-    <tspan x="886" dy="30">Notification of acceptance</tspan>
-    <tspan x="860" dy="42">• <tspan font-weight="700">May 22, 2026</tspan></tspan>
-    <tspan x="886" dy="30">Camera-ready deadline</tspan>
+  <line x1="64" y1="1048" x2="1536" y2="1048" stroke="#E5D9CC" stroke-width="2"/>
+  <line x1="816" y1="1048" x2="816" y2="1504" stroke="#E5D9CC" stroke-width="2"/>
+
+  <text x="64" y="1098" fill="#B86A5C" class="sans smallcaps" font-size="21" font-weight="700">We Especially Welcome</text>
+  <text x="88" y="1142" fill="#2C2A28" class="sans" font-size="24">
+    <tspan x="88" dy="0">• Social science findings that should shape</tspan>
+    <tspan x="112" dy="32">the technical design of AI systems</tspan>
+    <tspan x="88" dy="42">• Technical designs that address unmet</tspan>
+    <tspan x="112" dy="32">user needs or real-world harms</tspan>
+    <tspan x="88" dy="42">• Evaluation methods grounded in how</tspan>
+    <tspan x="112" dy="32">people actually use and experience AI systems</tspan>
+    <tspan x="88" dy="42">• Interdisciplinary work spanning CV, ML, HCI,</tspan>
+    <tspan x="112" dy="32">safety, security, ethics, and social science</tspan>
   </text>
 
-  <line x1="96" y1="1504" x2="1504" y2="1504" stroke="#E5D9CC" stroke-width="2"/>
-  <text x="96" y="1552" fill="#7A7067" class="sans" font-size="25">Full CFP and website at https://humansofgenerativeai.github.io/</text>
+  <text x="852" y="1098" fill="#B86A5C" class="sans smallcaps" font-size="21" font-weight="700">Key Dates</text>
+  <text x="852" y="1142" fill="#7A7067" class="sans" font-size="24">Submission deadline: (11:59 PM AOE)</text>
+  <text x="852" y="1196" fill="#2C2A28" class="sans" font-size="24">
+    <tspan x="852" dy="0">• <tspan font-weight="700">April 10, 2026</tspan></tspan>
+    <tspan x="878" dy="30">Submission deadline</tspan>
+    <tspan x="852" dy="42">• <tspan font-weight="700">April 24, 2026</tspan></tspan>
+    <tspan x="878" dy="30">Notification of acceptance</tspan>
+    <tspan x="852" dy="42">• <tspan font-weight="700">May 22, 2026</tspan></tspan>
+    <tspan x="878" dy="30">Camera-ready deadline</tspan>
+  </text>
+
+  <line x1="64" y1="1504" x2="1536" y2="1504" stroke="#E5D9CC" stroke-width="2"/>
+  <text x="64" y="1552" fill="#7A7067" class="sans" font-size="24">Full CFP and website at https://humansofgenerativeai.github.io/</text>
 </svg>

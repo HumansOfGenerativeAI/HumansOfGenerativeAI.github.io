@@ -5,14 +5,18 @@ description: "June 3 or June 4, 2026 (TBD) | Denver, Colorado"
 layout: default
 section_nav: true
 ---
+The design of generative AI and computer vision systems is often guided by technical in-lab evaluations that can differ substantially from real-world uses.
+This misalignment, at best, can lead to inefficiencies and, at worst, cause unintended harms in unforeseen contexts.
+Humans of Generative AI (HuG) recenters attention on the people who use and are affected by these
+systems.
+We invite talks and posters from human-centric research that inform the design or
+evaluation of generative AI and computer vision systems. Through this workshop, we will
+encourage and develop cross-disciplinary collaboration between computer vision and human-centric researchers, two, often disconnected, communities.
 
-Humans of Generative AI 2026 is a workshop on how people use, experience, and are affected
-by generative AI and computer vision systems.
 
 # Call for Participation
 
-This workshop invites poster submissions that connect real-world user insights to technical
-AI design and requirements. We especially encourage interdisciplinary work spanning computer
+This workshop invites poster submissions that **use real-world human behaviors/insights to inform the technical designs and requirements of AI and computer vision systems**. We especially encourage interdisciplinary work spanning computer
 vision, machine learning, HCI, safety, security, ethics, and social science.
 
 ## Important Dates
@@ -24,9 +28,9 @@ vision, machine learning, HCI, safety, security, ethics, and social science.
 
 ## Submission Overview
 
-- **Who should submit:** Researchers and practitioners connecting user insights to technical AI design and requirements
-- **What to submit:** Title, 200-300 word abstract, 1-3 page extended abstract, and a short practical relevance statement
-- **What to present:** Accepted submissions include a poster and a 3-5 minute lightning talk
+- **Who should submit:** Researchers and practitioners that connect user insights to technical AI design and requirements
+- **What to submit:** Title, 200-300 word abstract, 1 page extended abstract, and a short practical relevance statement
+- **What to present:** Accepted submissions will present a 3-5 minute lightning talk, and a corresponding poster. 
 
 <details class="cfp-details" markdown="1">
   <summary>
@@ -38,19 +42,30 @@ vision, machine learning, HCI, safety, security, ethics, and social science.
 
 We welcome submissions on the following themes:
 
-### Topic 1: Social Science Findings for AI Design
+### Topic 1: Human-Centric Findings That Inform AI Design
+As AI systems are adopted in everyday settings, they are often used in ways not anticipated by their designers.
+We welcome work that documents these real-world practices and their implications, including their use in
+[creative writing](https://dl.acm.org/doi/10.1145/3698061.3726910), [journalism](https://www.mdpi.com/2673-5172/5/2/39),
+and the [generation of sexual content](https://arxiv.org/abs/2601.21028),
+as well as their impacts on stakeholders due to the
+[theft of intellectual content](https://arxiv.org/abs/2401.06178), and
+[labor displacement](https://dl.acm.org/doi/10.1145/3600211.3604681). These can also include, but are not limited to:
 
 - Human-subjects studies, including surveys and fieldwork, that inform AI system design
 - Empirical findings about user needs, harms, trust, or adoption
 - Design implications derived from qualitative or mixed-methods research
 - Studies identifying mismatches between system assumptions and real-world use
 
-### Topic 2: Technical Designs for Real-World Needs
+### Topic 2: Technical Designs for Unattended Real-World Needs
+Technical standards, requirements, interfaces, or evaluation protocols may need to be adapted in response to observed real-world uses, unmet needs, or harms.
+We welcome work that explores how this technical gap may be met. This can include systems designs for accomodating real-world uses cases, 
+novel protections against unconsiderd harms such as [artistic style theft](https://www.usenix.org/conference/usenixsecurity23/presentation/shan),
+or discussions on how to translate societal or policy goals into [concrete technical processes](https://hai-production.s3.amazonaws.com/files/2023-12/Governing-Open-Foundation-Models.pdf).
 
-- AI system designs grounded in user research
-- Vision systems developed with accessibility, safety, or non-typical user considerations
-- Technical interventions motivated by empirical user findings
-- Prototypes evaluated with real-world stakeholders
+- System designs grounded in user research and participatory elicitation methods
+- Technical protections against AI for impacted stakeholders
+- Evaluation frameworks that translate societal or policy goals into AI technical processes or assessments
+- Prototypes, tools, or workflows evaluated with real-world stakeholders
 
 ## Submission Requirements
 
@@ -58,7 +73,7 @@ Each submission should include:
 
 - Title
 - Abstract of 200-300 words
-- 1-3 page extended abstract, with [CVPR format recommended](https://cvpr.thecvf.com/Conferences/2026/AuthorGuidelines)
+- 1 page extended abstract, with [CVPR format recommended](https://cvpr.thecvf.com/Conferences/2026/AuthorGuidelines) (excluding an abstract).
 - A short explanation of which workshop topic best fits the submission and how the
   contribution helps the audience understand how AI systems are used, misused, or
   experienced in practice
