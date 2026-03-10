@@ -34,7 +34,7 @@ body {
 .page-header {
   position: relative;
   overflow: hidden;
-  padding: 3.35rem 1rem 2.3rem;
+  padding: 2.75rem 1rem 2rem;
   background: linear-gradient(120deg, #c96745 0%, #d78a4a 28%, #d9b65a 52%, #8bbf8d 76%, #6daed0 100%);
   background-size: 340% 340%;
   animation: header-shift 8s ease-in-out infinite alternate;
@@ -76,22 +76,16 @@ body {
 }
 
 .project-name {
-  margin: 0 0 0.7rem;
+  margin: 0 0 1rem;
   padding: 0;
   font-family: "Literata", Georgia, serif;
   font-size: clamp(3.1rem, 6.6vw, 5.4rem);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 0.95;
   letter-spacing: -0.028em;
   text-wrap: balance;
   color: #fff9f1;
   text-shadow: 0 0.2rem 1.2rem rgba(82, 47, 26, 0.18);
-}
-
-.project-name br {
-  display: block;
-  content: "";
-  margin-top: 0.08em;
 }
 
 .main-content {
@@ -207,17 +201,17 @@ body {
   margin-bottom: 0;
   max-width: 30rem;
   color: rgba(255, 249, 240, 0.92);
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .hero-card {
   position: relative;
   z-index: 1;
-  width: min(100%, 52rem);
+  width: min(100%, 58rem);
   margin: 0 auto;
-  padding: clamp(1.45rem, 2.4vw, 2.2rem) 0 0.2rem;
+  padding: clamp(1.2rem, 2vw, 1.8rem) 0 0.5rem;
   text-align: left;
 }
 
@@ -225,13 +219,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 0 0 1.3rem;
+  margin: 0 0 1rem;
   padding: 0.32rem 0;
   border-radius: 999px;
   color: rgba(255, 247, 237, 0.8);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
@@ -439,13 +433,12 @@ body {
 
 @media screen and (max-width: 42rem) {
   .page-header {
-    padding: 1.75rem 0.85rem 1.35rem;
+    padding: 1.3rem 0.85rem 1.2rem;
   }
 
   .project-name {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.85rem;
     font-size: clamp(2.7rem, 11vw, 4rem);
-    line-height: 0.92;
   }
 
   .main-content {
@@ -473,18 +466,17 @@ body {
 
   .hero-card {
     width: min(100%, 28rem);
-    padding: 1rem 0 0.2rem;
+    padding: 0.95rem 0 0.35rem;
   }
 
   .hero-kicker {
-    margin-bottom: 1rem;
-    font-size: 0.68rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.72rem;
   }
 
   .project-tagline {
     max-width: 24rem;
-    font-size: 0.94rem;
-    line-height: 1.35;
+    font-size: 0.98rem;
   }
 
   .header-nav a {
