@@ -215,6 +215,10 @@ in the CVPR proceedings.
   </div>
 </section>
 
+# Downloads
+
+<p>Download the workshop posters: <a href="{{ '/assets/flyer-export/portrait-flyer.png' | relative_url }}" download>Portrait Poster PNG</a> and <a href="{{ '/assets/flyer-export/social-flyer.png' | relative_url }}" download>Square Social PNG</a>.</p>
+
 # Contact
 
 For questions, email [jaron.mink@asu.edu](mailto:jaron.mink@asu.edu).
