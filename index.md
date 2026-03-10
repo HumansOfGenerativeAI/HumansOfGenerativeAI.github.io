@@ -1,6 +1,6 @@
 ---
-title: "Humans of Generative AI 2026"
-header_title: "Humans of Generative AI 2026"
+title: "Humans of Generative AI"
+header_title_html: "Humans of<br>Generative AI"
 description: "June 3 or June 4, 2026 (TBD) | Denver, Colorado"
 layout: default
 section_nav: true
