@@ -7,12 +7,7 @@ section_nav: true
 ---
 
 Humans of Generative AI 2026 is a workshop on how people use, experience, and are affected
-by generative AI and computer vision systems. We invite talks and posters that connect
-human-centered findings to AI design, evaluation, and deployment, especially:
-
-- Social science findings that should shape the technical design of AI systems
-- Technical designs that address unmet user needs or real-world harms
-- Evaluation methods grounded in how people actually use and experience AI systems
+by generative AI and computer vision systems.
 
 # Call for Participation
 
@@ -29,12 +24,9 @@ vision, machine learning, HCI, safety, security, ethics, and social science.
 
 ## Submission Overview
 
-- **Who should submit:** Researchers and practitioners whose work connects real-world user
-  insights to technical AI design and requirements
-- **What to submit:** Title, 200-300 word abstract, 1-3 page extended abstract, and a brief
-  explanation of the contribution's practical relevance
-- **What to present:** Accepted submissions will include a poster presented during the poster
-  session and a 3-5 minute lightning talk
+- **Who should submit:** Researchers and practitioners connecting user insights to technical AI design and requirements
+- **What to submit:** Title, 200-300 word abstract, 1-3 page extended abstract, and a short practical relevance statement
+- **What to present:** Accepted submissions include a poster and a 3-5 minute lightning talk
 
 <details class="cfp-details" markdown="1">
   <summary>

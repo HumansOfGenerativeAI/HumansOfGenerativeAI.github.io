@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+OUT_DIR="$ROOT/assets/flyer-export"
+SOCIAL_SVG="$OUT_DIR/social-flyer.svg"
+PORTRAIT_SVG="$OUT_DIR/portrait-flyer.svg"
+
+bundle exec jekyll build >/dev/null
+mkdir -p "$OUT_DIR"
+swift - <<SWIFT
+import Foundation
+import AppKit
+import QuickLookThumbnailing
+
+func render(_ inputPath: String, _ outputPath: String, _ width: Double, _ height: Double) throws {
+    let input = URL(fileURLWithPath: inputPath)
+    let output = URL(fileURLWithPath: outputPath)
+    let size = CGSize(width: width, height: height)
+    let request = QLThumbnailGenerator.Request(fileAt: input, size: size, scale: 1.0, representationTypes: .all)
+    let sem = DispatchSemaphore(value: 0)
+    var localError: Error?
+
+    QLThumbnailGenerator.shared.generateBestRepresentation(for: request) { thumb, err in
+        defer { sem.signal() }
+        if let err = err {
+            localError = err
+            return
+        }
+        guard let cg = thumb?.cgImage else {
+            localError = NSError(domain: "render", code: 1, userInfo: [NSLocalizedDescriptionKey: "No CGImage returned"])
+            return
+        }
+        let rep = NSBitmapImageRep(cgImage: cg)
+        guard let data = rep.representation(using: .png, properties: [:]) else {
+            localError = NSError(domain: "render", code: 2, userInfo: [NSLocalizedDescriptionKey: "No PNG data"])
+            return
+        }
+        do {
+            try data.write(to: output)
+        } catch {
+            localError = error
+        }
+    }
+
+    _ = sem.wait(timeout: .now() + 30)
+    if let localError {
+        throw localError
+    }
+}
+
+do {
+    try render("$SOCIAL_SVG", "$OUT_DIR/social-flyer.png", 1600, 1600)
+    try render("$PORTRAIT_SVG", "$OUT_DIR/portrait-flyer.png", 1200, 1600)
+} catch {
+    fputs("ERR: \\(error)\\n", stderr)
+    exit(1)
+}
+SWIFT
+
+printf 'Generated %s\n' "$OUT_DIR/social-flyer.png"
+printf 'Generated %s\n' "$OUT_DIR/portrait-flyer.png"

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+{% seo %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;700&family=Open+Sans:wght@400;600;700&display=swap" as="style" type="text/css" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;700&family=Open+Sans:wght@400;600;700&display=swap">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    {% if page.noindex %}
+      <meta name="robots" content="noindex, nofollow">
+    {% endif %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  <body class="flyer-page">
+    <aside class="flyer-side-actions" aria-label="Flyer format controls">
+      <a class="flyer-side-link{% unless page.flyer_variant == 'portrait' %} is-active{% endunless %}" href="{{ '/share/social-flyer/' | relative_url }}">
+        Square
+      </a>
+      <a class="flyer-side-link{% if page.flyer_variant == 'portrait' %} is-active{% endif %}" href="{{ '/share/portrait-flyer/' | relative_url }}">
+        Portrait
+      </a>
+      <a class="flyer-print-button" href="{{ page.download_asset | relative_url }}" download>
+        {{ page.download_label | default: "Download Flyer" }}
+      </a>
+    </aside>
+    <main class="flyer-canvas" role="main">
+      {% if page.use_static_flyer %}
+        <img
+          class="flyer-static-art{% if page.flyer_variant == 'portrait' %} flyer-static-art-portrait{% endif %}"
+          src="{{ page.static_flyer_asset | relative_url }}"
+          alt="{{ page.title }}"
+        >
+      {% else %}
+        {{ content }}
+      {% endif %}
+    </main>
+  </body>
+</html>

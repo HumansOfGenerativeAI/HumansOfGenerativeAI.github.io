@@ -1,0 +1,86 @@
+<svg width="1600" height="1600" viewBox="0 0 1600 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sqbg" x1="180" y1="120" x2="1410" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C96745"/>
+      <stop offset="0.28" stop-color="#D78A4A"/>
+      <stop offset="0.52" stop-color="#D9B65A"/>
+      <stop offset="0.76" stop-color="#8BBF8D"/>
+      <stop offset="1" stop-color="#6DAED0"/>
+    </linearGradient>
+    <linearGradient id="sqpaper" x1="120" y1="120" x2="1480" y2="1480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF9"/>
+      <stop offset="1" stop-color="#FFF7EF"/>
+    </linearGradient>
+    <radialGradient id="sqglow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1320 220) rotate(90) scale(320)">
+      <stop stop-color="white" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sqglow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(280 520) rotate(90) scale(260)">
+      <stop stop-color="#FFEBCD" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FFEBCD" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .sans { font-family: "Helvetica Neue", Arial, sans-serif; }
+      .serif { font-family: Georgia, "Times New Roman", serif; }
+      .smallcaps { letter-spacing: 0.2em; text-transform: uppercase; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1600" fill="url(#sqpaper)"/>
+  <rect x="0" y="0" width="1600" height="560" fill="url(#sqbg)"/>
+  <circle cx="1320" cy="220" r="320" fill="url(#sqglow1)"/>
+  <circle cx="280" cy="520" r="260" fill="url(#sqglow2)"/>
+
+  <text x="96" y="118" fill="#FFF7ED" class="sans smallcaps" font-size="24" font-weight="700">CVPR Workshop  |  June 3 or June 4, 2026  |  Denver, Colorado</text>
+  <text x="96" y="248" fill="#FFFAF4" class="serif" font-size="110" font-weight="700">Humans of</text>
+  <text x="96" y="356" fill="#FFFAF4" class="serif" font-size="126" font-weight="700">Generative AI</text>
+  <text x="96" y="430" fill="#FFF9F0" class="sans" font-size="34" font-weight="600">
+    <tspan x="96" dy="0">A workshop on how people use, experience, and are affected by</tspan>
+    <tspan x="96" dy="44">generative AI and computer vision systems.</tspan>
+  </text>
+  <text x="96" y="624" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">About the Workshop</text>
+  <text x="96" y="668" fill="#2C2A28" class="sans" font-size="30">
+    <tspan x="96" dy="0">Humans of Generative AI brings together work on how people use, experience,</tspan>
+    <tspan x="96" dy="40">and are affected by generative AI and computer vision systems. The workshop</tspan>
+    <tspan x="96" dy="40">connects human-centered findings to the design, evaluation, and deployment</tspan>
+    <tspan x="96" dy="40">of AI systems.</tspan>
+  </text>
+
+  <line x1="96" y1="834" x2="1504" y2="834" stroke="#E5D9CC" stroke-width="2"/>
+
+  <text x="96" y="894" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">Call for Participation</text>
+  <text x="96" y="938" fill="#2C2A28" class="sans" font-size="30">
+    <tspan x="96" dy="0">We invite submissions that connect real-world user insights to technical AI design,</tspan>
+    <tspan x="96" dy="40">evaluation, and deployment. Submit a 1-3 page extended abstract. Accepted</tspan>
+    <tspan x="96" dy="40">submissions will be presented as both a poster and a 3-5 minute lightning talk.</tspan>
+  </text>
+
+  <line x1="96" y1="1048" x2="1504" y2="1048" stroke="#E5D9CC" stroke-width="2"/>
+  <line x1="820" y1="1048" x2="820" y2="1504" stroke="#E5D9CC" stroke-width="2"/>
+
+  <text x="96" y="1098" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">We Especially Welcome</text>
+  <text x="120" y="1142" fill="#2C2A28" class="sans" font-size="25">
+    <tspan x="120" dy="0">• Social science findings that should shape</tspan>
+    <tspan x="144" dy="32">the technical design of AI systems</tspan>
+    <tspan x="120" dy="42">• Technical designs that address unmet</tspan>
+    <tspan x="144" dy="32">user needs or real-world harms</tspan>
+    <tspan x="120" dy="42">• Evaluation methods grounded in how</tspan>
+    <tspan x="144" dy="32">people actually use and experience AI systems</tspan>
+    <tspan x="120" dy="42">• Interdisciplinary work spanning CV, ML, HCI,</tspan>
+    <tspan x="144" dy="32">safety, security, ethics, and social science</tspan>
+  </text>
+
+  <text x="860" y="1098" fill="#B86A5C" class="sans smallcaps" font-size="22" font-weight="700">Key Dates</text>
+  <text x="860" y="1142" fill="#7A7067" class="sans" font-size="22">Submission deadline: (11:59 PM AOE)</text>
+  <text x="860" y="1196" fill="#2C2A28" class="sans" font-size="24">
+    <tspan x="860" dy="0">• <tspan font-weight="700">April 10, 2026</tspan></tspan>
+    <tspan x="886" dy="30">Submission deadline</tspan>
+    <tspan x="860" dy="42">• <tspan font-weight="700">April 24, 2026</tspan></tspan>
+    <tspan x="886" dy="30">Notification of acceptance</tspan>
+    <tspan x="860" dy="42">• <tspan font-weight="700">May 22, 2026</tspan></tspan>
+    <tspan x="886" dy="30">Camera-ready deadline</tspan>
+  </text>
+
+  <line x1="96" y1="1504" x2="1504" y2="1504" stroke="#E5D9CC" stroke-width="2"/>
+  <text x="96" y="1552" fill="#7A7067" class="sans" font-size="25">Full CFP and website at https://humansofgenerativeai.github.io/</text>
+</svg>
