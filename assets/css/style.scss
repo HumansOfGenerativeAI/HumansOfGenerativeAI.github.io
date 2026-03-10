@@ -7,6 +7,13 @@ html {
   scroll-behavior: smooth;
 }
 
+#call-for-participation,
+#schedule,
+#organizers,
+#contact {
+  scroll-margin-top: 3.75rem;
+}
+
 :root {
   --ink-strong: #2c2a28;
   --ink: #4f4943;
@@ -432,6 +439,13 @@ body {
 }
 
 @media screen and (max-width: 42rem) {
+  #call-for-participation,
+  #schedule,
+  #organizers,
+  #contact {
+    scroll-margin-top: 4.5rem;
+  }
+
   .page-header {
     padding: 1.3rem 0.85rem 1.2rem;
   }
