@@ -3,6 +3,10 @@
 
 @import 'jekyll-theme-cayman';
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --ink-strong: #2c2a28;
   --ink: #4f4943;
@@ -30,18 +34,18 @@ body {
   position: relative;
   padding: 2.25rem 1rem 1.2rem;
   background: linear-gradient(120deg, #c96745 0%, #d78a4a 28%, #d9b65a 52%, #8bbf8d 76%, #6daed0 100%);
-  background-size: 280% 280%;
-  animation: header-shift 10s ease-in-out infinite alternate;
+  background-size: 340% 340%;
+  animation: header-shift 8s ease-in-out infinite alternate;
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.14);
 }
 
 @keyframes header-shift {
   0% {
-    background-position: 0% 45%;
+    background-position: 0% 42%;
   }
 
   100% {
-    background-position: 100% 55%;
+    background-position: 100% 58%;
   }
 }
 
@@ -54,10 +58,26 @@ body {
 }
 
 .main-content {
+  position: relative;
   max-width: 72rem;
   margin-top: 0;
   margin-bottom: 2.5rem;
   padding: 2rem 2.25rem 2.5rem;
+}
+
+.main-content h1,
+.main-content h2 {
+  position: relative;
+  z-index: 1;
+}
+
+.main-content > p,
+.main-content > ul,
+.main-content > details,
+.main-content > section,
+.main-content > footer {
+  position: relative;
+  z-index: 1;
 }
 
 .main-content h1,
@@ -175,6 +195,30 @@ body {
   color: #fff;
   border-bottom-color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: -0.15rem 0 1rem;
+  padding: 0.45rem 0 0.35rem;
+  gap: 0.25rem 0.85rem;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.96) 0%, rgba(255, 253, 248, 0.88) 78%, rgba(255, 253, 248, 0) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.sticky-nav a {
+  color: var(--accent-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-bottom-color: rgba(142, 106, 46, 0.16);
+}
+
+.sticky-nav a:hover,
+.sticky-nav a:focus {
+  color: var(--accent);
+  border-bottom-color: rgba(179, 92, 63, 0.42);
 }
 
 .main-content a {
@@ -348,6 +392,11 @@ body {
   .header-nav a {
     width: 100%;
     padding-bottom: 0.25rem;
+  }
+
+  .sticky-nav {
+    padding-top: 0.4rem;
+    margin-bottom: 0.7rem;
   }
 
   .schedule-program {
