@@ -16,8 +16,8 @@ encourage and develop cross-disciplinary collaboration between computer vision a
 
 # Call for Participation
 
-This workshop invites poster submissions that **use real-world human behaviors and insights to inform the technical designs and requirements of AI and computer vision systems**. We especially encourage interdisciplinary work spanning computer
-vision, machine learning, HCI, safety, security, ethics, and social science.
+We invite poster submissions that document real-world use & impact of generative AI systems and/or leverage human insights **to inform the technical design of generative AI and computer vision systems**.
+We especially encourage interdisciplinary work spanning computer vision, machine learning, HCI, safety, security, ethics, and social science.
 
 ## Important Dates
 
