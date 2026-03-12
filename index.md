@@ -1,7 +1,8 @@
 ---
 title: "Humans of Generative AI"
 header_title_html: "Humans of<br>Generative AI"
-description: "June 3 or June 4, 2026 | Denver, Colorado"
+description: "Humans of Generative AI is a CVPR 2026 workshop on human-centered research for the design and evaluation of generative AI and computer vision systems."
+tagline: "June 3 or June 4, 2026 | Denver, Colorado"
 layout: default
 section_nav: true
 ---
