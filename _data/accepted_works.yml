@@ -1,0 +1,149 @@
+# Display order follows this file. Keep groups and works in the intended page order.
+- heading: Human-Centric Findings Informing AI System Design
+  works:
+  - title: Training-Time Attribution and Use-Time Valuation in Generative AI Creative
+      Work
+    authors: Lu Xian
+    abstract: 'Existing CV approaches to consent, credit, and compensation largely
+      operationalize creative contribution as training-time source attribution: who
+      contributed data, whose style influenced generation, and whose work should be
+      protected from extraction. Drawing on empirical findings from AI-assisted design
+      practice, we show that in professional creative work, AI-generated outputs often
+      remain provisional until designers make them usable through aesthetic judgment,
+      selective adoption, and collaborative review. This reveals a mismatch between
+      attribution-centered technical accounts of contribution and the downstream labor
+      through which outputs acquire use value in practice. We therefore propose complementing
+      training-time attribution with use-time valuation, an account of the human work
+      that turns generated candidates into client deliverables, brand artifacts, or
+      accessible interfaces. This further suggests that metrics used to recognize
+      contribution, and, by extension, to support compensation, should also consider
+      workflow-centric ones that capture whether and how generated outputs acquire
+      value in real production contexts.'
+  - title: 'Nonverbal Cues in the Loop: Towards Discomfort Detection and Consent-Aware
+      Design in Video Dating'
+    authors: Ratna Kandala, Niva Manchanda, Akshata Kishore Moharir
+    abstract: 'Online dating has become the dominant pathway to romantic relationships,
+      yet current platforms strip the nonverbal cues: gaze, facial expression, body
+      posture, response timing, that humans rely on to signal comfort, disinterest,
+      and consent. This creates a communication gap with disproportionate safety consequences
+      for women. We propose a fairness-first Computer Vision (CV) research agenda
+      organized around real-time discomfort detection, engagement asymmetry modeling,
+      consent-aware interaction design, and longitudinal interaction summarization.
+      Responsible deployment demands purpose-built datasets with disaggregated fairness
+      evaluation and architectural commitments to on-device processing.'
+  - title: A Continuum from Naturalistic to Synthetic Traffic Data
+    authors: David Kuehn
+    abstract: Both naturalistic and synthetic data are important for advancing highway
+      transportation safety and reliability.  Many researchers create synthetic data
+      to supplement the distribution of naturalistic data or to enhance data privacy.  Synthetic
+      data are created from naturalistic examples.  Naturalistic data all have some
+      level of processing.  Rather than consider naturalistic and synthetic data are
+      discrete categories, researchers can benefit from considering naturalistic and
+      synthetic data as a continuum with tradeoffs across the continuum on cost, usability
+      and fit-for-purpose.
+  - title: The Past and Future of Nude Images in Research
+    authors: Princessa Cintaqia, Arshia Arya, Deepak Kumar, Elissa M. Redmiles, Allison
+      McDonald, Lucy Qin
+    abstract: 'In order to train, test, and evaluate nudity detection models, machine
+      learning researchers typically rely on nude images scraped from the Internet.
+      While this practice is common for assembling datasets for general image-recognition
+      tasks, the scraping of nude images raises unique ethical concerns. Our research
+      finds that this content is collected and, in some cases, subsequently distributed
+      by researchers without consent, leading to potential misuse and exacerbating
+      harm against the subjects depicted. We argue that the distribution of nonconsensually
+      collected nude images by researchers perpetuates image-based sexual abuse and
+      that the machine learning community should stop the nonconsensual use of nude
+      images in research. To characterize the scope and nature of this problem, we
+      conducted a systematic review of papers published in computing venues that collect
+      and use nude images. Our results paint a grim reality: norms around the usage
+      of nude images are sparse, leading to a litany of problematic practices like
+      distributing and publishing nude images with uncensored faces, and intentionally
+      collecting and sharing abusive content. We also propose a future participatorily-governed
+      dataset that could enable research with nude images while respecting the dignity
+      of all people.'
+  - title: 'From Policy to Design: Uncovering Socioemotional Risks in Generative AI
+      Systems for Education'
+    authors: Emmanuel Adeloju, Lindsey McCaleb, Rebekah Jongewaard, Nicole Oster,
+      Punya Mishra
+    abstract: "Much of the discourse on Generative AI (GenAI) safety centers on concerns such as bias in outputs, data privacy, misinformation, and hallucinations. These are real problems that are getting the attention of the technical community. What has yet to receive adequate attention is a parallel category of socioemotional harms that are structurally rooted in deliberate system design decisions, particularly those that affect K-12 students. These are harms identified by K-12 stakeholders and policymakers and are recognized as major concerns that schools and institutions need to proactively and reactively guard against. We therefore present the findings from a systematic analysis of 48 institutional AI guidance and policy documents from K-12 educational context spanning 33 US states and territories, 9 independent organizations, and 6 other countries. We evaluated the documents through a five-category framework, including (1) Anthropomorphization and Mental Model distortion, (2) Developmental Vulnerability, (3) Emotional Attachment and Parasocial Relationships, (4) Engineered Manipulation and Supernormal Stimuli, and (5) Social Isolation and Relationship Displacement. Our results revealed two key concerns and design problems. First, Emotional Attachment and Parasocial Relationships was the least addressed category across the entire corpus, despite well-documented cases of adolescent harms from AI companions. In contrast, Engineered Manipulation and Supernormal Stimuli and Developmental Vulnerability were the most frequently addressed categories across the corpus, reflecting growing awareness and concern about the deliberate design of AI systems to ensure students' stickiness. The polarity from these findings reveals struggling attempts of policymakers at grappling with the effects of GenAI and presents an opportunity for AI developers to align technical designs with consideration of educational standards and requirements. We propose a design-centric socioemotional (re)evaluation of “engagement-first” ethos in GenAI development and the alignment of system architecture with the nuanced needs of K-12 students, who are particularly vulnerable."
+  - title: 'Caught in a Mafia Romance: How Users Explore Intimate Narratives with
+      Chatbots'
+    authors: Julia Kieserman, Cat Mai, Sara Lignell, Lucy Qin, Athanasios Andreou,
+      Damon McCoy, Rosanna Bellini
+    abstract: 'AI chatbots, built using large language models, are increasingly integrated into society and mimic the patterns of human text exchanges. While previous research has raised concerns that humans may form romantic attachment to chatbots, the range of AI-mediated interactions that people wish to create for themselves or others with chatbots remains poorly understood, particularly given the fast evolving landscape of chatbots. We provide an empirical study of Character.AI (cAI), a popular chatbot platform that enables users to design and share character-based bots, and synthesize this with an analysis of Reddit posts from cAI users. Contrary to popular narratives, we identify that users want to: (1) engage in intimate roleplay with young adult, masculine-presenting characters that place users in a position of inferior power in well-defined scenarios and (2) immerse themselves in boundless, fantasy settings. We further find that users problematize both the excessive and insufficient sexualized content in such interactions which warrants novel digital-safety features.'
+- heading: Technical Designs for Unattended User Needs
+  works:
+  - title: 'Overlooked but Ubiquitous: Benchmarking Disability Bias in T2I Models'
+    authors: Sophia Lichtenberg, Judith Masthoff, Albert Gatt
+    abstract: |-
+      Text-to-image (T2I) models exhibit social biases and prior work has focused on gender, skin tone, and cultural representation within occupational context. However, disability remains systematically underexplored. Current evaluation practices often fail to align with sociologically grounded definitions of stereotyping, limiting assessment of representational harms toward people with disabilities (PWD). 
+      We created INCLUsive Disability Evaluation (INCLUDE-BENCH), the first large-scale benchmark for evaluating disability-related bias in T2I models. INCLUDE-BENCH comprises 119K generated images based on context-rich and intersectional prompt design. We evaluated 15 open-source and 2 closed models and our findings show that: (1) mobility-impaired and default disability prompts predominantly yield wheelchair depictions across all models; (2) disability-conditioned generations consistently exhibit less diversity and (3) stereotypical portrayals demonstrate stronger disability–text alignment and (4) introduce Stereotype Content Model (SCM) Score, demonstrating that T2I models reflect real-world stereotypical associations.
+  - title: 'Structured Listening: Codifying Human-Meaningful Voice Signals to Ground
+      Generative AI Reasoning'
+    authors: Rachel Manzelli, Carter Huffman
+    abstract: 'Generative AI systems are increasingly tasked with understanding voice
+      conversations, yet the representations they consume systematically discard the
+      dimensions of speech that humans most rely on: emotion, intent, behavioral dynamics,
+      and participant roles. Transcription-first pipelines lose paralinguistic signals
+      at the moment of conversion. Reasoning directly over raw audio is computationally
+      intractable at scale, and the compression required to make it feasible discards
+      the same signals. When a language model reasons over what remains, it is reasoning
+      over a shadow of the conversation. This paper presents the Ensemble Listening
+      Model (ELM) as a response to this structural gap. Rather than asking a generative
+      model to interpret raw conversational audio, the ELM first produces a rich,
+      structured representation explicitly designed around what humans care about
+      when they listen: clip-level signals such as emotion, and tonality; detections
+      such as manipulation tactics or interruption patterns; participant-level inferences
+      about roles and intents; and conversation-level summaries. These structured
+      outputs then serve as context for a downstream generative model, grounding its
+      reasoning in human-meaningful terms. The ELM achieves this through a hierarchical
+      ensemble of small, specialized models that operate orders of magnitude more
+      efficiently than monolithic foundation models while matching or exceeding their
+      accuracy. We argue that this points toward a broader design principle: the human-meaningful
+      structure latent in conversational data should be made explicit before it reaches
+      a generative model, not inferred from tokens after the fact.'
+  - title: 'The Evolutionary Editor: StackGP Red-Teaming for Visual Bias in Newsroom
+      AI'
+    authors: Ruchika Gupta, Aarav Gupta
+    abstract: |-
+      As generative artificial intelligence (GAI) is integrated into journalistic workflows for visual content creation, news organizations face a critical ethical vulnerability: the unexamined injection of systemic biases and stereotypes into public discourse. While media guidelines emphasize neutrality and credibility, there is a distinct lack of technical evaluation frameworks capable of auditing multimodal "black-box" models before deployment. Current auditing methods rely on manual, human-driven prompt testing, which is insufficient for uncovering the deep, non-linear biases embedded within massive latent spaces.
+
+      This paper proposes a novel, automated evaluation framework for newsrooms utilizing Stack-based Genetic Programming (StackGP) to actively "red-team" visual generative models. By treating bias detection as a dynamic optimization problem, our system architecture iteratively evolves adversarial news prompts to expose hidden demographic stereotypes, emotional manipulation, and visual homogenization in AI outputs. The framework translates the societal mandate of journalistic integrity into a concrete technical assessment: the evolutionary algorithm mutates benign news prompts (e.g., "a corporate CEO") and uses visual bias classifiers as the fitness function, systematically hunting for prompts that force the GAI into biased visual generation. This proposed architecture provides impacted stakeholders with a robust, scalable tool to quantify and mitigate under-considered representational harms. By shifting from manual oversight to evolutionary auditing, we offer a technical standard that empowers newsrooms to maintain editorial credibility and audience trust in an era of automated content production.
+  - title: 'When 95% Accuracy Isn''t Good Enough: Bridging the Gap Between Forensic
+      Biometric Facial Recognition Benchmarks and Real-World Human Impact'
+    authors: Justin Norman
+    abstract: |-
+      Biometric facial recognition systems are increasingly deployed in high-stakes forensic contexts, yet their reported accuracies, often exceeding 95%, are derived from evaluations conducted under favorable laboratory conditions that fail to represent the complexity of real-world use cases. This disconnect between lab performance and reality has serious consequences for civil liberties, as institutions and the public increasingly place confidence in systems whose capabilities in applied settings remain poorly characterized.
+
+      I present a body of work that addresses this gap. First, I introduce a publicly available, model-agnostic forensic evaluation framework modeled on eyewitness identification procedures, in which probe images are matched against perceptually similar decoys rather than easily distinguishable alternatives. Evaluating leading architectures (FaceNet, ArcFace) across more than 200,000 images under controlled forensic conditions, I find that previously reported accuracies drop by 10-30 percentage points relative to standard benchmarks.
+
+      Second, I investigate how generative AI interacts with forensic biometric systems at multiple points in the recognition pipeline. I evaluate whether neural super-resolution, deblurring, and head pose correction can improve recognition of degraded forensic images, and find that generative models frequently hallucinate facial features, producing visually convincing but identity-altered outputs that degrade rather than improve recognition. I additionally examine the growing use of synthetic face datasets in FRT model training and evaluation, identifying the risks of diversity washing, in which statistical diversity in generated faces creates false confidence in system fairness, and consent circumvention, in which synthetic data decouples biometric information from the individuals it represents, complicating regulatory enforcement.
+
+      Drawing on these findings, I propose a governance framework for responsible biometric deployment that addresses institutional oversight, deployment-readiness criteria, safeguards for ethical implementation, and investment in the multidisciplinary expertise required to navigate these technical, legal, and ethical challenges.
+  - title: "``Please Reach Out'': Evaluating LLM Responses to Depression and Anxiety
+      Symptoms with the MH-Disclosure Dataset"
+    authors: Micah Benson, Samishti Bhatia, Zhengyang Shan, Afitab Iyigun, Taijah
+      Chavis, Anthony J. Rosellini, Aaron Mueller
+    abstract: 'We evaluate how large language models (LLMs) respond when users disclose
+      symptoms of mental health disorders. We propose a manually written dataset based
+      on widely used depression and anxiety diagnostic questionnaires; our dataset,
+      MH-Disclosure, covers 42 symptoms at 4 levels of severity each, with 5 paraphrases
+      per item. We define 3 metrics to analyze LLM responses: awareness of a possible
+      mental health disorder, referrals to professionals, and inclusion of emergency
+      support hotlines. Using the proposed dataset and metrics, we find that models
+      often fail to refer or provide support hotlines appropriately given high-severity
+      prompts, yet also overdiagnose given low-severity prompts. We observe high variance
+      in each metric across models. In follow-up experiments, instructing models to
+      roleplay a fantasy character significantly reduces referral rates. We believe
+      these findings reflect a lack of shared standards among model developers for
+      determining how LLMs should respond to expressions of distress in conversational
+      settings. We call for those (post-)training LLMs to work closely with psychologists
+      to determine the optimal format and severity thresholds for safety filters when
+      interfacing with the mental health of users.'
+  - title: Tamper resistant Machine Unlearning Algorithms for Open-weight AI Models
+    authors: Amro Abdalla, Ismail Shaheen, Dan DeGenaro, Rupayan Mallick, Bogdan Raita,
+      Sarah Adel Bargal
+    abstract: |-
+      Text-to-image (T2I) models have emerged as powerful generative tools capable of producing highquality images faithful to input prompts. However, their accessibility and adaptability make them vulnerable to malicious fine-tuning, where adversaries adapt pre-trained models to generate harmful or copyrighted content. Methods like DreamBooth [24], LoRA, and Textual Inversion enable this adaptation with minimal resources and without needing to train from scratch. This vulnerability persists even when existing safety mechanisms, such as safety checkers or concept erasure methods, are in place, as they can be bypassed, disabled, or undone through lightweight adaptation techniques. This creates a significant risk: once a model is open-sourced, it becomes difficult to guarantee its continued alignment with safety goals. Current defenses either degrade the model’s generative capabilities or fail to withstand adversarial fine-tuning. While safety checkers and licensing agreements offer a first line of defense, they are not an inherent property of T2I models and are easily circumvented. To enhance the inherent safety of T2I models, concept erasure techniques have been proposed to remove undesirable concepts by modifying the model’s internal representations. Although such techniques can suppress the generation of undesired concepts, they are vulnerable to circumvention. Moreover, as we show in our experiments, simple fine-tuning can reintroduce the erased concepts, undermining the long-term effectiveness of concept erasure methods as a safety mechanism. 
+      
+      To address the limitations of concept erasure and defend against its circumvention, model immunization has been proposed as a proactive defense against malicious fine-tuning of T2I models. IMMA, for example, introduces a bi-level optimization approach inspired by MAML, aiming to learn poor model initializations that hinder adaptation to undesirable concepts. By simulating the fine-tuning process during immunization, IMMA makes it more difficult for adversaries to reintroduce harmful content through fine-tuning. However, IMMA’s framework significantly compromises the model’s performance on safe concepts, degrading both its generative quality and its ability to be fine-tuned for benign applications. To this end, we propose GIFT—a Gradient-aware Immunization framework to defend T2I diffusion models against malicious Fine-Tuning while preserving their ability to generate safe content. GIFT's immunization objective is composed of two parts: (1) a loss maximization term and (2) a representation noising term. We demonstrate that immunizing a model with GIFT significantly impairs its ability to re-learn harmful content while maintaining generative ability across a wide range of safe concepts. Our evaluation covers several concept categories—including objects, art styles, and NSFW content—and considers multiple fine-tuning strategies, e.g., LoRA and DreamBooth.

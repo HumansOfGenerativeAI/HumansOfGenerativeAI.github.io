@@ -1,0 +1,87 @@
+<svg width="1600" height="1600" viewBox="0 0 1600 1600" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-labelledby="accepted-title accepted-desc">
+<title id="accepted-title">Humans of Generative AI CVPR 2026 Accepted Works Flyer</title>
+<desc id="accepted-desc">Accepted works flyer for the Humans of Generative AI workshop. Workshop URL: https://humansofgenerativeai.github.io/</desc>
+<defs>
+  <linearGradient id="header-gradient" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#C96C47"/>
+    <stop offset="0.48" stop-color="#E0B955"/>
+    <stop offset="1" stop-color="#7FBCCA"/>
+  </linearGradient>
+  <linearGradient id="paper-gradient" x1="0" y1="0" x2="1600" y2="1600" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#FFFBF4"/>
+    <stop offset="0.55" stop-color="#FCF6EE"/>
+    <stop offset="1" stop-color="#FFF9F1"/>
+  </linearGradient>
+  <radialGradient id="warm-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(205 365) rotate(32) scale(365 250)">
+    <stop stop-color="#F3C96B" stop-opacity="0.28"/>
+    <stop offset="1" stop-color="#F3C96B" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="cool-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1390 920) rotate(145) scale(315 245)">
+    <stop stop-color="#8BC6C9" stop-opacity="0.16"/>
+    <stop offset="1" stop-color="#8BC6C9" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="1600" height="1600" fill="url(#paper-gradient)"/>
+<rect width="1600" height="1600" fill="url(#warm-glow)"/>
+<rect width="1600" height="1600" fill="url(#cool-glow)"/>
+<rect width="1600" height="228" fill="url(#header-gradient)"/>
+<text x="800" y="84" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="84" font-weight="800" fill="#FFF7ED">Humans of Generative AI</text>
+<text x="800" y="146" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="50" font-weight="800" fill="#FFF7ED">CVPR 2026 Workshop</text>
+<text x="800" y="198" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#FFF7ED">June 4, 2026 · 8:30 AM-1:00 PM MDT · Room 710 · Denver, Colorado</text>
+<line x1="120" y1="256" x2="560" y2="256" stroke="#D8C5B5" stroke-width="2" stroke-linecap="round" opacity="0.88"/>
+<text x="800" y="267" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="25" font-weight="800" fill="#B6472E">Accepted Works</text>
+<line x1="1040" y1="256" x2="1480" y2="256" stroke="#D8C5B5" stroke-width="2" stroke-linecap="round" opacity="0.88"/>
+<text x="120" y="338" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#B6472E" text-anchor="start"><tspan x="120" dy="0">Human-Centric Findings Informing AI</tspan><tspan x="120" dy="34">System Design</tspan></text>
+<line x1="120" y1="421" x2="770" y2="421" stroke="#D8C5B5" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<text x="120" y="473" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">01</text>
+<text x="168" y="473" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="168" dy="0">Training-Time Attribution and Use-Time</tspan><tspan x="168" dy="30">Valuation in Generative AI Creative Work</tspan></text>
+<text x="168" y="551" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="168" dy="0">Lu Xian</tspan></text>
+<line x1="168" y1="598" x2="770" y2="598" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="120" y="612" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">02</text>
+<text x="168" y="612" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="168" dy="0">Nonverbal Cues in the Loop: Towards</tspan><tspan x="168" dy="30">Discomfort Detection and Consent-Aware</tspan><tspan x="168" dy="30">Design in Video Dating</tspan></text>
+<text x="168" y="724" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="168" dy="0">Ratna Kandala, Niva Manchanda, Akshata Kishore Moharir</tspan></text>
+<line x1="168" y1="772" x2="770" y2="772" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="120" y="785" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">03</text>
+<text x="168" y="785" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="168" dy="0">A Continuum from Naturalistic to Synthetic</tspan><tspan x="168" dy="30">Traffic Data</tspan></text>
+<text x="168" y="864" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="168" dy="0">David Kuehn</tspan></text>
+<line x1="168" y1="911" x2="770" y2="911" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="120" y="925" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">04</text>
+<text x="168" y="925" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="168" dy="0">The Past and Future of Nude Images in</tspan><tspan x="168" dy="30">Research</tspan></text>
+<text x="168" y="1003" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="168" dy="0">Princessa Cintaqia, Arshia Arya, Deepak Kumar, Elissa M.</tspan><tspan x="168" dy="24">Redmiles, Allison McDonald, Lucy Qin</tspan></text>
+<line x1="168" y1="1077" x2="770" y2="1077" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="120" y="1091" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">05</text>
+<text x="168" y="1091" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="168" dy="0">From Policy to Design: Uncovering</tspan><tspan x="168" dy="30">Socioemotional Risks in Generative AI</tspan><tspan x="168" dy="30">Systems for Education</tspan></text>
+<text x="168" y="1204" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="168" dy="0">Emmanuel Adeloju, Lindsey McCaleb, Rebekah Jongewaard,</tspan><tspan x="168" dy="24">Nicole Oster, Punya Mishra</tspan></text>
+<line x1="168" y1="1279" x2="770" y2="1279" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="120" y="1293" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">06</text>
+<text x="168" y="1293" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="168" dy="0">Caught in a Mafia Romance: How Users</tspan><tspan x="168" dy="30">Explore Intimate Narratives with Chatbots</tspan></text>
+<text x="168" y="1371" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="168" dy="0">Julia Kieserman, Cat Mai, Sara Lignell, Lucy Qin,</tspan><tspan x="168" dy="24">Athanasios Andreou, Damon McCoy, Rosanna Bellini</tspan></text>
+<text x="850" y="338" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#B6472E" text-anchor="start"><tspan x="850" dy="0">Technical Designs for Unattended User</tspan><tspan x="850" dy="34">Needs</tspan></text>
+<line x1="850" y1="421" x2="1480" y2="421" stroke="#D8C5B5" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<text x="850" y="473" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">07</text>
+<text x="898" y="473" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="898" dy="0">Overlooked but Ubiquitous: Benchmarking</tspan><tspan x="898" dy="30">Disability Bias in T2I Models</tspan></text>
+<text x="898" y="551" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="898" dy="0">Sophia Lichtenberg, Judith Masthoff, Albert Gatt</tspan></text>
+<line x1="898" y1="598" x2="1480" y2="598" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="850" y="612" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">08</text>
+<text x="898" y="612" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="898" dy="0">Structured Listening: Codifying</tspan><tspan x="898" dy="30">Human-Meaningful Voice Signals to Ground</tspan><tspan x="898" dy="30">Generative AI Reasoning</tspan></text>
+<text x="898" y="724" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="898" dy="0">Rachel Manzelli, Carter Huffman</tspan></text>
+<line x1="898" y1="772" x2="1480" y2="772" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="850" y="785" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">09</text>
+<text x="898" y="785" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="898" dy="0">The Evolutionary Editor: StackGP</tspan><tspan x="898" dy="30">Red-Teaming for Visual Bias in Newsroom AI</tspan></text>
+<text x="898" y="864" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="898" dy="0">Ruchika Gupta, Aarav Gupta</tspan></text>
+<line x1="898" y1="911" x2="1480" y2="911" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="850" y="925" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">10</text>
+<text x="898" y="925" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="898" dy="0">When 95% Accuracy Isn't Good Enough:</tspan><tspan x="898" dy="30">Bridging the Gap Between Forensic Biometric</tspan><tspan x="898" dy="30">Facial Recognition Benchmarks and</tspan><tspan x="898" dy="30">Real-World Human Impact</tspan></text>
+<text x="898" y="1072" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="898" dy="0">Justin Norman</tspan></text>
+<line x1="898" y1="1119" x2="1480" y2="1119" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="850" y="1133" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">11</text>
+<text x="898" y="1133" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="898" dy="0">&quot;Please Reach Out&quot;: Evaluating LLM</tspan><tspan x="898" dy="30">Responses to Depression and Anxiety</tspan><tspan x="898" dy="30">Symptoms with the MH-Disclosure Dataset</tspan></text>
+<text x="898" y="1245" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="898" dy="0">Micah Benson, Samishti Bhatia, Zhengyang Shan, Afitab</tspan><tspan x="898" dy="24">Iyigun, Taijah Chavis, Anthony J. Rosellini, Aaron Mueller</tspan></text>
+<line x1="898" y1="1320" x2="1480" y2="1320" stroke="#E4D6C8" stroke-width="1.4" stroke-linecap="round" opacity="0.74"/>
+<text x="850" y="1334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#B6472E" letter-spacing="0.3">12</text>
+<text x="898" y="1334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2C2A28" text-anchor="start"><tspan x="898" dy="0">Tamper resistant Machine Unlearning</tspan><tspan x="898" dy="30">Algorithms for Open-weight AI Models</tspan></text>
+<text x="898" y="1412" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="650" fill="#5D514A" text-anchor="start"><tspan x="898" dy="0">Amro Abdalla, Ismail Shaheen, Dan DeGenaro, Rupayan</tspan><tspan x="898" dy="24">Mallick, Bogdan Raita, Sarah Adel Bargal</tspan></text>
+<a href="https://humansofgenerativeai.github.io/" xlink:href="https://humansofgenerativeai.github.io/">
+  <text x="120" y="1581" text-anchor="start" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" font-weight="800" letter-spacing="0.1" fill="#9B948D">https://humansofgenerativeai.github.io/</text>
+</a>
+</svg>

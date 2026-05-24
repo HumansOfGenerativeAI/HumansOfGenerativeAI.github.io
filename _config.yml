@@ -1,0 +1,9 @@
+title: Humans of Generative AI
+description: Humans of Generative AI is a CVPR 2026 workshop on human-centered research for the design and evaluation of generative AI and computer vision systems.
+show_downloads: false
+google_analytics:
+theme: jekyll-theme-cayman
+exclude:
+  - private-assets/
+  - "**/.DS_Store"
+  - assets/.DS_Store

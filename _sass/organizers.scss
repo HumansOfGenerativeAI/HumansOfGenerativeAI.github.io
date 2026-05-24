@@ -1,0 +1,51 @@
+.organizers-section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.organizers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.organizer-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.organizer-card h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.15rem;
+  color: #222;
+}
+
+.organizer-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.organizer-card a {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: #007acc;
+  text-decoration: none;
+}
+
+.organizer-card a:hover {
+  text-decoration: underline;
+}
+
+.organizer-card.empty {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}

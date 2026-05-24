@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec ruby -S bundle exec jekyll serve
