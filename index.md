@@ -29,8 +29,11 @@ encourage and develop cross-disciplinary collaboration between computer vision a
       <h3>Juliana Castro Varón</h3>
       <p class="keynote-role">Senior Design Editor of AI Initiatives at The New York Times</p>
       <div class="keynote-bio">
-        <p>Juliana Castro Varón is the Senior Design Editor at the Artificial Intelligence Initiatives team at The New York Times and the founder of the bilingual open-access publishing house Cita Press.</p>
-        <p>Juliana has received fellowships and support from Fulbright, the Mellon Foundation and Harvard, where she is an affiliate at the Berkman Klein Center for Internet & Society. Juliana also contributes humor and cartoons to The New Yorker magazine.</p>
+        <p>Juliana Castro Varón is the Senior Design Editor at the Artificial Intelligence Initiatives team at The New York Times and the founder of the bilingual open-access publishing house Cita Press. Juliana has received fellowships and support from Fulbright, the Mellon Foundation and Harvard, where she is an affiliate at the Berkman Klein Center for Internet & Society. Juliana also contributes humor and cartoons to The New Yorker magazine.</p>
+      </div>
+      <div class="keynote-talk">
+        <h4>What Is (and What Is Not) a Good Use of AI in Journalism?</h4>
+        <p>This fully hand-drawn presentation will detail how The New York Times' AI Initiatives team integrates design, machine learning, and editorial expertise to enhance storytelling, develop tools for journalism, and tell stories with and about AI. It will highlight the importance of human oversight in providing context and ensuring quality, and demo examples of internal tools designed for investigative reporting.</p>
       </div>
     </div>
   </article>
@@ -45,8 +48,11 @@ encourage and develop cross-disciplinary collaboration between computer vision a
       <h3>Rishi Bommasani</h3>
       <p class="keynote-role">Senior Research Scholar at Stanford HAI</p>
       <div class="keynote-bio">
-        <p>Rishi Bommasani is a senior research scholar at Stanford's Institute for Human-Centered Artificial Intelligence. He researches the societal and economic impact of AI. His research has received several recognitions at ML conferences and has been covered by the New York Times, Nature, Science, the Washington Post, and Wall Street Journal.</p>
-        <p>His research shapes public policy: he is the lead author of the California Report on Frontier AI Policy that led to the first US laws on frontier AI, an independent expert chair of the EU AI Act Code of Practice that clarifies the first comprehensive worldwide laws on frontier AI, and an author of the International Scientific Report on the Safety of Advanced AI.</p>
+        <p>Rishi Bommasani is a senior research scholar at Stanford's Institute for Human-Centered Artificial Intelligence. He researches the societal and economic impact of AI. His research has received several recognitions at ML conferences and has been covered by the New York Times, Nature, Science, the Washington Post, and Wall Street Journal. His research shapes public policy: he is the lead author of the California Report on Frontier AI Policy that led to the first US laws on frontier AI, an independent expert chair of the EU AI Act Code of Practice that clarifies the first comprehensive worldwide laws on frontier AI, and an author of the International Scientific Report on the Safety of Advanced AI.</p>
+      </div>
+      <div class="keynote-talk">
+        <h4>On Frontier AI and Jobs</h4>
+        <p>How will AI affect jobs? Based on advances in computer vision, 10 years ago Geoff Hinton made his infamous prediction about radiologists going out of work. While it is indisputable that progress in computer vision hinges on Geoff's contributions to deep learning, it is equally indisputable that his prediction was wrong. This talk will explore how we can reason about the impact frontier AI will have on jobs and what we can learn from past predictions.</p>
       </div>
     </div>
   </article>
@@ -66,8 +72,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
       <h3>Tiana Oreglia</h3>
       <p class="keynote-role">Concept Artist and Artist Advocate</p>
       <div class="keynote-bio">
-        <p>Tiana Oreglia is a freelance concept artist, comic artist, and illustrator based in and from San Francisco.</p>
-        <p>Despite having a degree in animation from Sheridan College, she's worked predominantly in the games industry for the past six years, while also working in animation and editorial illustration. She's worked on titles such as <em>Voodoo Detective</em> as the lead character designer and with Valve on their latest <em>Team Fortress 2</em> comic as a penciler, inker, and colorist. For the past couple years, she's been advocating for artists to legislators in California as new technologies threaten to displace workers.</p>
+        <p>Tiana Oreglia is a freelance concept artist, comic artist, and illustrator based in and from San Francisco. Despite having a degree in animation from Sheridan College, she's worked predominantly in the games industry for the past six years, while also working in animation and editorial illustration. She's worked on titles such as <em>Voodoo Detective</em> as the lead character designer and with Valve on their latest <em>Team Fortress 2</em> comic as a penciler, inker, and colorist. For the past couple years, she's been advocating for artists to legislators in California as new technologies threaten to displace workers.</p>
       </div>
     </div>
   </article>
@@ -151,8 +156,16 @@ encourage and develop cross-disciplinary collaboration between computer vision a
     {% endfor %}
     <div class="schedule-item">
       <div class="schedule-time">9:30a</div>
-      <div class="schedule-activity">Keynote: Juliana Castro Varón</div>
+      <div class="schedule-activity">Keynote: What Is (and What Is Not) a Good Use of AI in Journalism?</div>
     </div>
+    <details class="schedule-talk-order keynote-schedule-details">
+      <summary>Keynote details</summary>
+      <div class="schedule-detail-copy">
+        <p class="schedule-talk-title">What Is (and What Is Not) a Good Use of AI in Journalism?</p>
+        <p class="schedule-detail-speaker">Juliana Castro Varón</p>
+        <p>This fully hand-drawn presentation will detail how The New York Times' AI Initiatives team integrates design, machine learning, and editorial expertise to enhance storytelling, develop tools for journalism, and tell stories with and about AI. It will highlight the importance of human oversight in providing context and ensuring quality, and demo examples of internal tools designed for investigative reporting.</p>
+      </div>
+    </details>
     <div class="schedule-item">
       <div class="schedule-time">9:55a</div>
       <div class="schedule-activity">Break</div>
@@ -192,8 +205,16 @@ encourage and develop cross-disciplinary collaboration between computer vision a
     {% endfor %}
     <div class="schedule-item">
       <div class="schedule-time">11:45a</div>
-      <div class="schedule-activity">Keynote: Rishi Bommasani</div>
+      <div class="schedule-activity">Keynote: On Frontier AI and Jobs</div>
     </div>
+    <details class="schedule-talk-order keynote-schedule-details">
+      <summary>Keynote details</summary>
+      <div class="schedule-detail-copy">
+        <p class="schedule-talk-title">On Frontier AI and Jobs</p>
+        <p class="schedule-detail-speaker">Rishi Bommasani</p>
+        <p>How will AI affect jobs? Based on advances in computer vision, 10 years ago Geoff Hinton made his infamous prediction about radiologists going out of work. While it is indisputable that progress in computer vision hinges on Geoff's contributions to deep learning, it is equally indisputable that his prediction was wrong. This talk will explore how we can reason about the impact frontier AI will have on jobs and what we can learn from past predictions.</p>
+      </div>
+    </details>
   </div>
 
   <div class="schedule-block">

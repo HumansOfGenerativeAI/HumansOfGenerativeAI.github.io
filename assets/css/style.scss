@@ -677,6 +677,34 @@ body {
   line-height: 1.4;
 }
 
+.keynote-schedule-details {
+  padding-bottom: 0.72rem;
+}
+
+.schedule-detail-copy {
+  margin-top: 0.55rem;
+  max-width: 45rem;
+}
+
+.schedule-detail-copy p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.schedule-detail-copy .schedule-detail-speaker {
+  margin-top: 0.08rem;
+  color: var(--accent-rose);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.schedule-detail-copy p + p {
+  margin-top: 0.32rem;
+}
+
 .accepted-works-section {
   margin: 0.35rem 0 1.75rem;
   max-width: 58rem;
@@ -820,6 +848,7 @@ body {
   min-width: 0;
   width: 100%;
   max-width: 17rem;
+  align-self: center;
   justify-self: start;
 }
 
@@ -872,7 +901,7 @@ body {
 }
 
 .keynote-copy h3 {
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.3rem;
   color: var(--ink-strong);
   font-family: "Literata", Georgia, serif;
   font-size: clamp(1.7rem, 3vw, 2.2rem);
@@ -881,7 +910,7 @@ body {
 }
 
 .keynote-role {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.5rem;
   color: var(--accent-rose);
   font-size: 0.98rem;
   font-weight: 700;
@@ -892,15 +921,36 @@ body {
   width: 100%;
 }
 
+.keynote-talk {
+  margin: 0.7rem 0 0;
+  padding: 0.58rem 0 0;
+  border-top: 1px solid rgba(229, 217, 204, 0.78);
+}
+
+.keynote-talk h4 {
+  margin: 0 0 0.3rem;
+  color: var(--ink-strong);
+  font-family: "Literata", Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.22;
+}
+
+.keynote-talk p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
 .keynote-bio p {
   margin: 0;
   color: var(--ink);
   font-size: 0.98rem;
-  line-height: 1.7;
+  line-height: 1.58;
 }
 
 .keynote-bio p + p {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .speaker-more {
