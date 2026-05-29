@@ -592,6 +592,13 @@ body {
   line-height: 1.4;
 }
 
+.schedule-activity-title {
+  display: block;
+  color: var(--ink-strong);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 .schedule-block-optional {
   border-top: 2px dashed rgba(184, 106, 92, 0.28);
   background: transparent;
@@ -609,8 +616,14 @@ body {
 }
 
 .schedule-talk-order {
-  padding: 0.08rem 0.95rem 0.78rem;
-  border-bottom: 1px solid var(--line-soft);
+  margin-top: 0.18rem;
+  padding: 0;
+  font-weight: 400;
+}
+
+.schedule-talk-order[open] {
+  display: block;
+  margin-top: 0.28rem;
 }
 
 .schedule-talk-order summary,
@@ -618,6 +631,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  min-height: 1.35rem;
   color: var(--accent-rose);
   cursor: pointer;
   font-size: 0.76rem;
@@ -678,7 +692,7 @@ body {
 }
 
 .keynote-schedule-details {
-  padding-bottom: 0.72rem;
+  max-width: 45rem;
 }
 
 .schedule-detail-copy {
@@ -785,9 +799,6 @@ body {
     gap: 0.75rem;
   }
 
-  .schedule-talk-order {
-    padding-left: calc(0.95rem + 7.2rem + 0.75rem);
-  }
 }
 
 .invited-speakers-section {

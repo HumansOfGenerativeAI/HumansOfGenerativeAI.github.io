@@ -139,33 +139,37 @@ encourage and develop cross-disciplinary collaboration between computer vision a
     <div class="schedule-block-title">Topic 1: Human-Centric Findings That Inform the Technical Design of AI Systems</div>
     <div class="schedule-item">
       <div class="schedule-time">8:45a</div>
-      <div class="schedule-activity">Lightning Talks 1</div>
-    </div>
-    {% for group in site.data.accepted_works limit: 1 %}
-    <details class="schedule-talk-order">
-      <summary>Talk details</summary>
-      <ol class="schedule-talk-list">
-        {% for work in group.works %}
-        <li>
-          <span class="schedule-talk-title">{{ work.title }}</span>
-          <span class="schedule-talk-authors">{{ work.authors }}</span>
-        </li>
+      <div class="schedule-activity">
+        <div class="schedule-activity-title">Lightning Talks 1</div>
+        {% for group in site.data.accepted_works limit: 1 %}
+        <details class="schedule-talk-order">
+          <summary>Details</summary>
+          <ol class="schedule-talk-list">
+            {% for work in group.works %}
+            <li>
+              <span class="schedule-talk-title">{{ work.title }}</span>
+              <span class="schedule-talk-authors">{{ work.authors }}</span>
+            </li>
+            {% endfor %}
+          </ol>
+        </details>
         {% endfor %}
-      </ol>
-    </details>
-    {% endfor %}
+      </div>
+    </div>
     <div class="schedule-item">
       <div class="schedule-time">9:25a</div>
-      <div class="schedule-activity">Keynote: What Is (and What Is Not) a Good Use of AI in Journalism?</div>
-    </div>
-    <details class="schedule-talk-order keynote-schedule-details">
-      <summary>Keynote details</summary>
-      <div class="schedule-detail-copy">
-        <p class="schedule-talk-title">What Is (and What Is Not) a Good Use of AI in Journalism?</p>
-        <p class="schedule-detail-speaker">Juliana Castro Varón</p>
-        <p>This fully hand-drawn presentation will detail how The New York Times' AI Initiatives team integrates design, machine learning, and editorial expertise to enhance storytelling, develop tools for journalism, and tell stories with and about AI. It will highlight the importance of human oversight in providing context and ensuring quality, and demo examples of internal tools designed for investigative reporting.</p>
+      <div class="schedule-activity">
+        <div class="schedule-activity-title">Keynote: What Is (and What Is Not) a Good Use of AI in Journalism?</div>
+        <details class="schedule-talk-order keynote-schedule-details">
+          <summary>Details</summary>
+          <div class="schedule-detail-copy">
+            <p class="schedule-talk-title">What Is (and What Is Not) a Good Use of AI in Journalism?</p>
+            <p class="schedule-detail-speaker">Juliana Castro Varón</p>
+            <p>This fully hand-drawn presentation will detail how The New York Times' AI Initiatives team integrates design, machine learning, and editorial expertise to enhance storytelling, develop tools for journalism, and tell stories with and about AI. It will highlight the importance of human oversight in providing context and ensuring quality, and demo examples of internal tools designed for investigative reporting.</p>
+          </div>
+        </details>
       </div>
-    </details>
+    </div>
     <div class="schedule-item">
       <div class="schedule-time">9:50a</div>
       <div class="schedule-activity">Break</div>
@@ -176,7 +180,16 @@ encourage and develop cross-disciplinary collaboration between computer vision a
     <div class="schedule-block-title">Panel Discussion: Humans of Generative AI</div>
     <div class="schedule-item">
       <div class="schedule-time">10:00a</div>
-      <div class="schedule-activity">Panel Discussion</div>
+      <div class="schedule-activity">
+        <div class="schedule-activity-title">Panel Discussion</div>
+        <details class="schedule-talk-order">
+          <summary>Details</summary>
+          <div class="schedule-detail-copy">
+            <p><strong>Panelists:</strong> Juliana Castro Varón, Rishi Bommasani, Tiana Oreglia, Elissa M. Redmiles</p>
+            <p><strong>Moderator:</strong> David A. Forsyth</p>
+          </div>
+        </details>
+      </div>
     </div>
     <div class="schedule-item">
       <div class="schedule-time">10:45a</div>
@@ -188,33 +201,37 @@ encourage and develop cross-disciplinary collaboration between computer vision a
     <div class="schedule-block-title">Topic 2: Technical Designs That Consider Unattended Needs of Users</div>
     <div class="schedule-item">
       <div class="schedule-time">10:50a</div>
-      <div class="schedule-activity">Lightning Talks 2</div>
-    </div>
-    {% for group in site.data.accepted_works offset: 1 limit: 1 %}
-    <details class="schedule-talk-order">
-      <summary>Talk details</summary>
-      <ol class="schedule-talk-list">
-        {% for work in group.works %}
-        <li>
-          <span class="schedule-talk-title">{{ work.title }}</span>
-          <span class="schedule-talk-authors">{{ work.authors }}</span>
-        </li>
+      <div class="schedule-activity">
+        <div class="schedule-activity-title">Lightning Talks 2</div>
+        {% for group in site.data.accepted_works offset: 1 limit: 1 %}
+        <details class="schedule-talk-order">
+          <summary>Details</summary>
+          <ol class="schedule-talk-list">
+            {% for work in group.works %}
+            <li>
+              <span class="schedule-talk-title">{{ work.title }}</span>
+              <span class="schedule-talk-authors">{{ work.authors }}</span>
+            </li>
+            {% endfor %}
+          </ol>
+        </details>
         {% endfor %}
-      </ol>
-    </details>
-    {% endfor %}
+      </div>
+    </div>
     <div class="schedule-item">
       <div class="schedule-time">11:30a</div>
-      <div class="schedule-activity">Keynote: On Frontier AI and Jobs</div>
-    </div>
-    <details class="schedule-talk-order keynote-schedule-details">
-      <summary>Keynote details</summary>
-      <div class="schedule-detail-copy">
-        <p class="schedule-talk-title">On Frontier AI and Jobs</p>
-        <p class="schedule-detail-speaker">Rishi Bommasani</p>
-        <p>How will AI affect jobs? Based on advances in computer vision, 10 years ago Geoff Hinton made his infamous prediction about radiologists going out of work. While it is indisputable that progress in computer vision hinges on Geoff's contributions to deep learning, it is equally indisputable that his prediction was wrong. This talk will explore how we can reason about the impact frontier AI will have on jobs and what we can learn from past predictions.</p>
+      <div class="schedule-activity">
+        <div class="schedule-activity-title">Keynote: On Frontier AI and Jobs</div>
+        <details class="schedule-talk-order keynote-schedule-details">
+          <summary>Details</summary>
+          <div class="schedule-detail-copy">
+            <p class="schedule-talk-title">On Frontier AI and Jobs</p>
+            <p class="schedule-detail-speaker">Rishi Bommasani</p>
+            <p>How will AI affect jobs? Based on advances in computer vision, 10 years ago Geoff Hinton made his infamous prediction about radiologists going out of work. While it is indisputable that progress in computer vision hinges on Geoff's contributions to deep learning, it is equally indisputable that his prediction was wrong. This talk will explore how we can reason about the impact frontier AI will have on jobs and what we can learn from past predictions.</p>
+          </div>
+        </details>
       </div>
-    </details>
+    </div>
   </div>
 
   <div class="schedule-block">
