@@ -1,7 +1,7 @@
 ---
 header_title_html: "Humans of<br>Generative AI"
 description: "Humans of Generative AI is a CVPR 2026 workshop on human-centered research for the design and evaluation of generative AI and computer vision systems."
-tagline: "June 4, 2026 | 8:30 AM-1:00 PM MDT | Room 710 | Denver, Colorado"
+tagline: "June 4, 2026 | 8:30 AM-12:30 PM MDT | Room 710 | Denver, Colorado"
 layout: default
 section_nav: true
 ---
@@ -127,7 +127,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
 
 # Schedule
 
-<p class="schedule-note">The workshop will be held on <strong>June 4, 2026</strong> from <strong>8:30a-1:00p</strong> in <strong>Room 710</strong>. Times are listed in <strong>Denver local time (MDT)</strong>.</p>
+<p class="schedule-note">The workshop will be held on <strong>June 4, 2026</strong> from <strong>8:30a-12:30p</strong> in <strong>Room 710</strong>. Times are listed in <strong>Denver local time (MDT)</strong>.</p>
 
 <section class="schedule-program" aria-label="Workshop schedule">
   <div class="schedule-item">
@@ -155,7 +155,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
     </details>
     {% endfor %}
     <div class="schedule-item">
-      <div class="schedule-time">9:30a</div>
+      <div class="schedule-time">9:25a</div>
       <div class="schedule-activity">Keynote: What Is (and What Is Not) a Good Use of AI in Journalism?</div>
     </div>
     <details class="schedule-talk-order keynote-schedule-details">
@@ -167,7 +167,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
       </div>
     </details>
     <div class="schedule-item">
-      <div class="schedule-time">9:55a</div>
+      <div class="schedule-time">9:50a</div>
       <div class="schedule-activity">Break</div>
     </div>
   </div>
@@ -175,11 +175,11 @@ encourage and develop cross-disciplinary collaboration between computer vision a
   <div class="schedule-block">
     <div class="schedule-block-title">Panel Discussion: Humans of Generative AI</div>
     <div class="schedule-item">
-      <div class="schedule-time">10:05a</div>
+      <div class="schedule-time">10:00a</div>
       <div class="schedule-activity">Panel Discussion</div>
     </div>
     <div class="schedule-item">
-      <div class="schedule-time">10:50a</div>
+      <div class="schedule-time">10:45a</div>
       <div class="schedule-activity">Break</div>
     </div>
   </div>
@@ -187,7 +187,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
   <div class="schedule-block">
     <div class="schedule-block-title">Topic 2: Technical Designs That Consider Unattended Needs of Users</div>
     <div class="schedule-item">
-      <div class="schedule-time">11:00a</div>
+      <div class="schedule-time">10:50a</div>
       <div class="schedule-activity">Lightning Talks 2</div>
     </div>
     {% for group in site.data.accepted_works offset: 1 limit: 1 %}
@@ -204,7 +204,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
     </details>
     {% endfor %}
     <div class="schedule-item">
-      <div class="schedule-time">11:45a</div>
+      <div class="schedule-time">11:30a</div>
       <div class="schedule-activity">Keynote: On Frontier AI and Jobs</div>
     </div>
     <details class="schedule-talk-order keynote-schedule-details">
@@ -220,18 +220,18 @@ encourage and develop cross-disciplinary collaboration between computer vision a
   <div class="schedule-block">
     <div class="schedule-block-title">Poster Session</div>
     <div class="schedule-item">
-      <div class="schedule-time">12:10p</div>
+      <div class="schedule-time">12:00p</div>
       <div class="schedule-activity">Poster Session</div>
     </div>
     <div class="schedule-item">
-      <div class="schedule-time">12:55p-1:00p</div>
+      <div class="schedule-time">12:25p-12:30p</div>
       <div class="schedule-activity">Closing</div>
     </div>
   </div>
 
   <div class="schedule-block schedule-block-optional">
     <div class="schedule-item schedule-item-optional">
-      <div class="schedule-time">1:30p</div>
+      <div class="schedule-time">1:00p</div>
       <div class="schedule-activity">Unofficial group lunch!</div>
     </div>
   </div>
