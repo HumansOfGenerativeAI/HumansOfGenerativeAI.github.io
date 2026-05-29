@@ -76,7 +76,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
       </div>
     </div>
   </article>
-  <article class="keynote-feature keynote-feature-reverse">
+  <article class="keynote-feature keynote-feature-reverse speaker-feature-with-more">
     <div class="keynote-media">
       <div class="keynote-photo-frame">
         <img src="{{ '/assets/images/panelists/elissa-redmiles.jpg' | relative_url }}" alt="Elissa M. Redmiles" class="keynote-photo">
@@ -101,7 +101,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
 
   <div class="speaker-group" aria-labelledby="speaker-moderator">
     <h2 id="speaker-moderator" class="speaker-subhead">Moderator</h2>
-  <article class="keynote-feature">
+  <article class="keynote-feature speaker-feature-with-more">
     <div class="keynote-media">
       <div class="keynote-photo-frame">
         <img src="{{ '/assets/images/moderators/david-forsyth.jpg' | relative_url }}" alt="David A. Forsyth" class="keynote-photo">

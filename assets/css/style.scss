@@ -852,6 +852,10 @@ body {
   justify-self: start;
 }
 
+.speaker-feature-with-more .keynote-media {
+  align-self: start;
+}
+
 .keynote-media::before {
   content: "";
   position: absolute;
