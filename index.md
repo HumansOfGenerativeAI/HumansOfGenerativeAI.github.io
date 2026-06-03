@@ -248,7 +248,7 @@ encourage and develop cross-disciplinary collaboration between computer vision a
 
   <div class="schedule-block schedule-block-optional">
     <div class="schedule-item schedule-item-optional">
-      <div class="schedule-time">1:00p</div>
+      <div class="schedule-time">1:15p</div>
       <div class="schedule-activity">Unofficial group lunch!</div>
     </div>
   </div>
